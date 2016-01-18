@@ -23,9 +23,10 @@ public class AdminController {
 	
 	@RequestMapping(value="/add",method=RequestMethod.GET)
 	public String addAdmin(Model m){
-		Admin a = new Admin("abc","abc@gmail.com",121);
-		m.addAttribute("admin", a);
-		
+		//Admin a = new Admin("abc","abc@gmail.com",12345);
+		//m.addAttribute("admin", a);
+		Admin admin=new Admin();
+		m.addAttribute("admin",admin);
 		//out.print(a.getEmailID());
 	
 		Configuration configuration=new Configuration();
@@ -36,7 +37,7 @@ public class AdminController {
 		
 		Transaction transaction= session.beginTransaction();
 		
-		session.save(a);
+		//session.save(a);
 		
 		session.flush();
 		
