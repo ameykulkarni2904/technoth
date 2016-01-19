@@ -20,7 +20,7 @@ import com.psl.model.Admin;
 
 
 @Controller
-
+//@RequestMapping(value="/admin")
 public class AdminController {
 	
 	@RequestMapping(value="/signup",method=RequestMethod.GET)

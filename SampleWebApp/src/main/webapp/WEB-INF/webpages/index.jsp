@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
      <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -22,37 +23,37 @@
 		
 		<!-- Google Font -->
 		
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<link href='<c:url value="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800"/>' rel='stylesheet' type='text/css'>
 
 		<!-- CSS
 		================================================== -->
 		<!-- Fontawesome Icon font -->
-        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />">
 		<!-- Twitter Bootstrap css -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />">
 		<!-- jquery.fancybox  -->
-        <link rel="stylesheet" href="css/jquery.fancybox.css">
+        <link rel="stylesheet" href="<c:url value="/resources/css/jquery.fancybox.css"/>">
 		<!-- animate -->
-        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="<c:url value="/resources/css/animate.css"/>">
 		<!-- Main Stylesheet -->
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="<c:url value="/resources/css/main.css"/>">
 		<!-- media-queries -->
-        <link rel="stylesheet" href="css/media-queries.css">
+        <link rel="stylesheet" href="<c:url value="/resources/css/media-queries.css"/>">
 
 		<!-- Modernizer Script for old Browsers -->
-        <script src="js/modernizr-2.6.2.min.js"></script>
+        <script src="<c:url value="/resources/js/modernizr-2.6.2.min.js"/>"></script>
 
 		<!--- new css-->
 		<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 
-	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
-	<link rel="stylesheet" href="css/style.css"> <!-- Gem style -->
-	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+	<link rel="stylesheet" href="<c:url value="/resources/css/reset.css"/>"> <!-- CSS reset -->
+	<link rel="stylesheet" href="<c:url value="/resources/csscss/style.css"/>"> <!-- Gem style -->
+	<script src="<c:url value="/resources/js/modernizr.js"/>"></script> <!-- Modernizr -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="js/main.js"></script> <!-- Gem jQuery -->
+	<script src="<c:url value="/resources/js/main.js"/>"></script> <!-- Gem jQuery -->
 	
 	<!-- new css -->
-	 <link rel="stylesheet" href="css/timercss.css"> <!-- CSS reset -->
+	 <link rel="stylesheet" href="<c:url value="/resources/css/timercss.css"/>"> <!-- CSS reset -->
 
 	
     </head>
@@ -60,9 +61,9 @@
     <body id="body">
 	
 		<!-- preloader -->
-		<div id="preloader">
-			<img src="img/preloader.gif" alt="Preloader">
-		</div>
+		<%-- <div id="preloader">
+			<img src="<c:url value="/resources/img/preloader.gif"/>" alt="Preloader">
+		</div> --%>
 		<!-- end preloader -->
 
         <!-- 
@@ -81,7 +82,7 @@
 					<!-- logo -->
                     <a class="navbar-brand" href="#body">
 						<h1 id="logo">
-							<img src="img/pslLogo.png" alt="TechnothonX">
+							<img src="<c:url value="/resources/img/pslLogo.png"/>" alt="TechnothonX">
 						</h1>
 					</a>
 					<!-- /logo -->
@@ -140,7 +141,7 @@
 				<div class="carousel-inner" role="listbox">
 					
 					<!-- single slide -->
-					<div class="item active" style="background-image: url(img/banner.jpg);">
+					<div class="item active" style="background-image: url(resources/img/banner.jpg);">
 					
 					<!-- timer -->
 		<h1>Countdown Clock</h1>
@@ -183,7 +184,7 @@
 					<!-- end single slide -->
 					
 					<!-- single slide -->
-					<div class="item" style="background-image: url(img/banner.jpg);">
+					<div class="item" style="background-image: url(resources/img/banner.jpg);">
 						<div class="carousel-caption">
 							<h2 data-wow-duration="500ms" data-wow-delay="500ms" class="wow bounceInDown animated"><span> TechnothonX</span>!</h2>
 							<h3 data-wow-duration="500ms" class="wow slideInLeft animated"><span class="color">create</span> <span class="color">innovate</span> <span class="color">compete</span></h3>
@@ -328,7 +329,7 @@
 					<div class="col-md-4 wow fadeInLeft" data-wow-duration="500ms">
 						<div class="service-item">
 							<div class="service-icon">
-								<img src="img/in.png" style="width: 88px">
+								<img src="<c:url value="/resources/img/in.png"/>" style="width: 88px">
 							</div>
 							
 							<div class="service-desc">
