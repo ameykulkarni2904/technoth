@@ -11,6 +11,20 @@ public class Admin {
 	private String name;
 	private String emailID;
 	private int empID;
+	private String pwd;
+	public Admin(String name, String emailID, int empID, String pwd) {
+		super();
+		this.name = name;
+		this.emailID = emailID;
+		this.empID = empID;
+		this.pwd = pwd;
+	}
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
 	public String getName() {
 		return name;
 	}
@@ -23,7 +37,7 @@ public class Admin {
 	@Override
 	public String toString() {
 		return "Admin [name=" + name + ", emailID=" + emailID + ", empID="
-				+ empID + "]";
+				+ empID + ", pwd=" + pwd + "]";
 	}
 	public void setEmailID(String emailID) {
 		this.emailID = emailID;
@@ -32,12 +46,6 @@ public class Admin {
 		return empID;
 	}
 	public void setEmpID(int empID) {
-		this.empID = empID;
-	}
-	public Admin(String name, String emailID, int empID) {
-		super();
-		this.name = name;
-		this.emailID = emailID;
 		this.empID = empID;
 	}
 	

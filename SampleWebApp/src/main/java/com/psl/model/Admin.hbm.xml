@@ -14,6 +14,8 @@
         <property name="emailID" type="java.lang.String">
             <column name="EMAILID" />
         </property>
-        
+        <property name="pwd">
+        	<column name="password"></column>
+        </property>
     </class>
 </hibernate-mapping>
