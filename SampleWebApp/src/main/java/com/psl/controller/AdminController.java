@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.psl.model.Admin;
-
+import com.psl.dao.HibernateUtil;
 
 @Controller
-//@RequestMapping(value="/admin")
+@RequestMapping(value="/admin")
 public class AdminController {
 	
 	@RequestMapping(value="/signup",method=RequestMethod.GET)

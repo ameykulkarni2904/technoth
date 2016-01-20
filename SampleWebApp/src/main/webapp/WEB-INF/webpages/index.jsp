@@ -346,7 +346,7 @@
 					<div class="col-md-4 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="500ms">
 						<div class="service-item">
 							<div class="service-icon">
-								<img src="img/inv3.jpg" style="width: 88px">
+								<img src="<c:url value="/resources/img/inv3.jpg"/>" style="width: 88px">
 							</div>
 							
 							<div class="service-desc">
@@ -362,7 +362,7 @@
 					<div class="col-md-4 wow fadeInRight" data-wow-duration="500ms"  data-wow-delay="900ms">
 						<div class="service-item">
 							<div class="service-icon">
-								<img src="img/comp1.png" style="width: 88px">
+								<img src="<c:url value="/resources/img/comp1.png"/>" style="width: 88px">
 							</div>
 							
 							<div class="service-desc">
@@ -515,7 +515,7 @@
 					<!-- single member -->
 					<figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms">
 						<div class="member-thumb">
-							<img src="img/team/ds2.jpg" alt="Team Member" class="img-responsive">
+							<img src="<c:url value="/resources/img/team/ds2.jpg"/>" alt="Team Member" class="img-responsive">
 							<figcaption class="overlay">
 								<h5>Judges round 1  </h5>
 								
@@ -530,7 +530,7 @@
 					<!-- single member -->
 					<figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="300ms">
 						<div class="member-thumb">
-							<img src="img/team/cd5.png" alt="Team Member" class="img-responsive">
+							<img src="<c:url value="/resources/img/team/cd5.png"/>" alt="Team Member" class="img-responsive">
 							<figcaption class="overlay">
 								<h5>Judges round 2 </h5>
 								
@@ -544,7 +544,7 @@
 					<!-- single member -->
 					<figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="600ms">
 						<div class="member-thumb">
-							<img src="img/team/cdf.jpg" alt="Team Member" class="img-responsive">
+							<img src="<c:url value="/resources/img/team/cdf.jpg"/>" alt="Team Member" class="img-responsive">
 							<figcaption class="overlay">
 								<h5>Code Freeze!</h5>
 								
@@ -558,7 +558,7 @@
 					<!-- single member -->
 					<figure class="team-member col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="900ms">
 						<div class="member-thumb">
-							<img src="img/team/ps3.jpeg" alt="Team Member" class="img-responsive">
+							<img src="<c:url value="/resources/img/team/ps3.jpeg"/>" alt="Team Member" class="img-responsive">
 							<figcaption class="overlay">
 								<h5>Final Presentations</h5>
 								

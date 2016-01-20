@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 19, 2016 6:48:41 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.psl.model.Participant" table="participants">
+        <id name="employee_id" type="int">
+            <column name="emp_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="employee_name" type="java.lang.String">
+            <column name="name" />
+        </property>
+        
+        <property name="mail_id">
+            <column name="mailID" />
+        </property>
+        
+         <property name="team_name" type="java.lang.String">
+            <column name="TEAM_NAME" />
+        </property>
+        <property name="batch" type="java.lang.String">
+            <column name="BATCH" />
+        </property>
+       
+        <property name="contact_no" type="java.lang.String">
+            <column name="CONTACT_NO" />
+        </property>
+    </class>
+</hibernate-mapping>
