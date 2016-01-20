@@ -46,11 +46,11 @@ public class TeamFormation {
 		// TODO Auto-generated method stub
 		
 			for (Map.Entry<Integer, List<Participant>> team : teamMap.entrySet()) {
-				for(int j=0;j<batchSize && team.getValue().size()<6;j++){
+				for(int j=0;j<batchSize && team.getValue().size()<4;j++){
 				for (Map.Entry<String, List<Participant>> batch : map.entrySet()) {
 				//	for(int i=0;i<batchSize;i++){
 //						int index=(int) (Math.random()*batch.getValue().size());
-						for(int i=0;i<fromeachBatch && batch.getValue().size()>0 && team.getValue().size()<6;i++){
+						for(int i=0;i<fromeachBatch && batch.getValue().size()>0 && team.getValue().size()<5;i++){
 							team.getValue().add(batch.getValue().get(i));
 							System.out.println(batch.getValue().get(i)+"removed");
 							batch.getValue().remove(i);
@@ -65,7 +65,40 @@ public class TeamFormation {
 					
 					
 				}
-			} 
+			}
+			List<Participant> list=new ArrayList<Participant>();
+			for(Map.Entry<String, List<Participant>> batch : map.entrySet()){
+				list.addAll(batch.getValue());
+			}
+			while(list.size()!=0){
+				for (Map.Entry<Integer, List<Participant>> team : teamMap.entrySet()) {
+					if(list.size()>0){
+					team.getValue().add(list.get(0));
+					list.remove(0);
+					}
+					/*for (Participant participant : list) {
+						
+						System.out.println("remaining:"+participant);
+					}*/
+				}
+			}
+/*			for (Participant participant : list) {
+				if(batch.getValue().size()>0){
+					int count=0;
+					for (Map.Entry<Integer, List<Participant>> team : teamMap.entrySet()) {
+						System.out.println("team " +team.getKey());
+						
+						if(batch.getValue().size()>0){
+							System.out.println("batch :"+batch.getValue().get(count));
+							team.getValue().add(batch.getValue().get(count));
+							batch.getValue().remove(count);
+							count++;
+						}
+					}
+				}	
+			}*/
+			
+			
 			for (Map.Entry<Integer, List<Participant>> team : teamMap.entrySet()) {
 				System.out.println("Team"+team.getKey()+": ");
 				for (Participant p : team.getValue()) {
