@@ -34,7 +34,7 @@ public class TeamFormation {
 		Map<Integer,List<Participant>> teamMap=new HashMap();
 		teamMap=generateTeamMap(no_of_teams);
 		int no_of_membersFromEachBatch=teamSize/no_of_batches;
-		addMembers(teamMap,map,no_of_membersFromEachBatch,no_of_batches);
+		addMembers(teamMap,map,no_of_membersFromEachBatch,no_of_batches,teamSize);
 		
 		
 		
@@ -42,21 +42,25 @@ public class TeamFormation {
 	}
 	
 	private void addMembers(Map<Integer, List<Participant>> teamMap,
-			Map<String, List<Participant>> map,int fromeachBatch, int batchSize) {
+			Map<String, List<Participant>> map,int fromeachBatch, int batchSize,int teamSize) {
 		// TODO Auto-generated method stub
 		
 			for (Map.Entry<Integer, List<Participant>> team : teamMap.entrySet()) {
-				for(int j=0;j<batchSize && team.getValue().size()<4;j++){
+				for(int j=0;j<batchSize && team.getValue().size()<teamSize;j++){
 				for (Map.Entry<String, List<Participant>> batch : map.entrySet()) {
 				//	for(int i=0;i<batchSize;i++){
 //						int index=(int) (Math.random()*batch.getValue().size());
-						for(int i=0;i<fromeachBatch && batch.getValue().size()>0 && team.getValue().size()<5;i++){
-							team.getValue().add(batch.getValue().get(i));
-							System.out.println(batch.getValue().get(i)+"removed");
-							batch.getValue().remove(i);
+						for(int i=0;i<fromeachBatch && batch.getValue().size()!=0 && team.getValue().size()<teamSize;i++){
+							System.out.println("i"+i);
+							team.getValue().add(batch.getValue().get(0));
+							System.out.println(batch.getValue().get(0)+"removed");
+							batch.getValue().remove(0);
 						}
 						if(batch.getValue().size()==0){
 							j--;
+						}
+						if(team.getValue().size()==teamSize){
+							break;
 						}
 //						break;
 					//	System.out.println(index);
