@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 21, 2016 3:26:28 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.psl.model.Schedule" table="SCHEDULE">
+        <id name="startDate" type="java.util.Date">
+            <column name="start_date" />
+            <generator class="assigned" />
+        </id>
+        <property name="endDate" type="java.util.Date">
+            <column name="end_date" />
+        </property>
+        <property name="noOfMilestones" type="int">
+            <column name="NOOFMILESTONES" />
+  </property>
+
+    </class>
+</hibernate-mapping>
