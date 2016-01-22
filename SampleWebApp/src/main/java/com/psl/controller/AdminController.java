@@ -48,6 +48,7 @@ public class AdminController {
 		session.close();
 		return "index";
 	}
+	
 	@RequestMapping(value="/signup",method=RequestMethod.POST)
 	public String signup(Model model,Admin admin){
 		model.addAttribute("admin1", admin);

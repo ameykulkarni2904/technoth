@@ -10,6 +10,9 @@ public class HibernateUtil {
 		Configuration configuration=new Configuration();
 		configuration.addResource("com/psl/model/Admin.hbm.xml");
 		configuration.addResource("com/psl/model/Participant.hbm.xml");
+		configuration.addResource("com/psl/model/Milestone.hbm.xml");
+		configuration.addResource("com/psl/model/Schedule.hbm.xml");
+		
 		configuration.configure();
 		SessionFactory factory=configuration.buildSessionFactory();
 		return factory;

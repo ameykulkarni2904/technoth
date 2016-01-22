@@ -8,6 +8,9 @@
             <column name="emp_ID" />
             <generator class="assigned" />
         </id>
+        <property name="team_id" type="int">
+            <column name="teamID" />
+        </property>
         <property name="employee_name" type="java.lang.String">
             <column name="name" />
         </property>

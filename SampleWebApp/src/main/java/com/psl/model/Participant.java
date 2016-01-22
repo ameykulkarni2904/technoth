@@ -1,6 +1,9 @@
 package com.psl.model;
 
-public class Participant {
+import java.io.Serializable;
+
+public class Participant implements Serializable {
+	private int team_id;
 	private int employee_id;
 	private String employee_name;
 	private String mail_id;
@@ -9,6 +12,12 @@ public class Participant {
 	private String contact_no;
 	public int getEmployee_id() {
 		return employee_id;
+	}
+	public int getTeam_id() {
+		return team_id;
+	}
+	public void setTeam_id(int team_id) {
+		this.team_id = team_id;
 	}
 	public void setEmployee_id(int employee_id) {
 		this.employee_id = employee_id;

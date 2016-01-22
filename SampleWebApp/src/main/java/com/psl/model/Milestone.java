@@ -2,11 +2,22 @@ package com.psl.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+@Entity
+@Table(name="milestone")
 public class Milestone {
-	int milestoneId;
-	Date startDateTime;
-	Date endDateTime;
-	int noOfDays;
+	private int milestoneId;
+	private String milestoneName;
+	private Date startDateTime;
+	private Date endDateTime;
+	private int noOfDays;
+	public String getMilestoneName() {
+		return milestoneName;
+	}
+	public void setMilestoneName(String milestoneName) {
+		this.milestoneName = milestoneName;
+	}
 	public int getMilestoneId() {
 		return milestoneId;
 	}
