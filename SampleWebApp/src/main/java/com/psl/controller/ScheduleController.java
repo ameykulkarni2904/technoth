@@ -1,15 +1,14 @@
 package com.psl.controller;
 
-import java.util.ArrayList;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,7 +37,8 @@ public class ScheduleController {
 	
 	@RequestMapping(value="/add",method=RequestMethod.POST)
 	public String generateSchedule(Model model,Schedule schedule){
-		milestonescount=schedule.getNoOfMilestones();
+//		milestonescount=schedule.getNoOfMilestones();
+		schedule.setNoOfMilestones(4);
 		System.out.println("schedule from jsp: " + schedule);
 		ScheduleController scheduleController=new ScheduleController();
 		Date startDate=schedule.getStartDate();
@@ -183,7 +183,6 @@ public class ScheduleController {
 		SessionFactory sessionFactory=HibernateUtil.getFactory();
 		Session session=sessionFactory.openSession();
 		Transaction transaction= session.beginTransaction();
-		
 		//session.save(milestone);
 		Query q=session.createQuery("from Milestone");
 		if(q.list().size()==0){
@@ -213,8 +212,8 @@ public class ScheduleController {
 
 
 
-	public Date checkForSundays(Calendar c2, int noOfDays,
-			Calendar c1) {
+	public Date checkForSundays(Calendar startDate, int noOfDays,
+			Calendar endDate) {
 		// TODO Auto-generated method stub
 //		Calendar c1 = Calendar.getInstance();
 //		c1.setTime(d1);
@@ -223,27 +222,31 @@ public class ScheduleController {
 		c2.setTime(d2);*/
 		 
 		int sundays = 0,count=0;
+		Calendar tempDate=Calendar.getInstance();
+		tempDate.setTime(startDate.getTime());
 		 System.out.println("in controller");
-		while(c1.after(c2) && count<noOfDays-1) {
-			 System.out.println("while loop "+c1.get(Calendar.DAY_OF_WEEK));
-		    if(c1.get(Calendar.DAY_OF_WEEK)==Calendar.SUNDAY){
+		while(tempDate.before(endDate) && count<noOfDays) {// c1.after(c2) && 
+			
+			 System.out.println("while loop "+tempDate.get(Calendar.DAY_OF_WEEK));
+		    if(tempDate.get(Calendar.DAY_OF_WEEK)==Calendar.SUNDAY){
 		    	
 		        sundays++;
-		        
+		        tempDate.add(Calendar.DATE,1);
 		    }
-		    c1.add(Calendar.DATE,1);
+		    else tempDate.add(Calendar.DATE, 1);
+		    
 		    count++;
 		}
 		
 			
-			
-		
+		startDate.add(Calendar.DATE, noOfDays+sundays-1);	
+		//c1.add(Calendar.DATE,sundays);
 		System.out.println("sundays:"+sundays);
 		/*while(sundays<noOfDays){
 			c1.add(Calendar.DATE, 1);
 		}*/
 		
-		return c1.getTime();
+		return startDate.getTime();
 		
 		
 	}

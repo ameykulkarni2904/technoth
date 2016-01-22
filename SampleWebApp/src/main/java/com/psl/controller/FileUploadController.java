@@ -92,5 +92,58 @@ public class FileUploadController {
                     + " because the file was empty.";
         }
     }
+    
+    
+    
+	@RequestMapping(value = { "/uploadDoc" }, method = RequestMethod.GET)
+	public String uploadDoc() {
+
+		return "UploadDoc";
+	}
+
+	@RequestMapping(value = "/uploadDoc", method = RequestMethod.POST)
+    public @ResponseBody
+    String uploadDocHandler(@RequestParam("name1") String name1, @RequestParam("name2") String name2,
+            @RequestParam("file1") MultipartFile file1, @RequestParam("file2") MultipartFile file2) {
+		
+		if (!file1.isEmpty() && !file2.isEmpty()) {
+			try {
+				byte[] bytes1 = file1.getBytes();
+				byte[] bytes2 = file2.getBytes();
+				String rootPath = "C:\\";
+				File dir = new File(rootPath + File.separator + "DocFiles");
+				if(!dir.exists())
+					dir.mkdirs();
+				//File1
+				File serverFile1 = new File(dir.getAbsolutePath()
+						+ File.separator + name1);
+				BufferedOutputStream stream1 = new BufferedOutputStream(
+						new FileOutputStream(serverFile1));
+				stream1.write(bytes1);
+				stream1.close();
+				
+				//File2
+				File serverFile2 = new File(dir.getAbsolutePath()
+						+ File.separator + name2);
+				BufferedOutputStream stream2 = new BufferedOutputStream(
+						new FileOutputStream(serverFile2));
+				stream2.write(bytes2);
+				stream2.close();
+
+				
+				
+				return "team";
+				//return "You successfully uploaded file=" + name1 +" "+name2;
+			} catch (Exception e) {
+				e.printStackTrace();
+				return "You failed to upload " + name1+" "+name2+" " + " => " + e.getMessage();
+			}
+		} else {
+			return "You failed to upload " + name1+" "+name2+" "
+					+ " because the file was empty.";
+		}
+				
+	}
+	
 
 }

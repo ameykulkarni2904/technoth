@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.psl.model.Admin;
+import com.psl.model.ProblemStatement;
+import com.psl.model.Teamlogin;
 import com.psl.dao.HibernateUtil;
 
 @Controller
@@ -30,7 +32,8 @@ public class AdminController {
 		Admin admin=new Admin();
 		m.addAttribute("admin",admin);
 		//out.print(a.getEmailID());
-	
+		Teamlogin Teamlogin = new Teamlogin();
+		m.addAttribute("teamlogin", Teamlogin);
 		Configuration configuration=new Configuration();
 		configuration.addResource("com/psl/model/Admin.hbm.xml");
 		configuration.configure();
@@ -73,6 +76,8 @@ public class AdminController {
 		Admin admin=new Admin();
 		model.addAttribute("admin",admin);
 		
+		Teamlogin Teamlogin = new Teamlogin();
+		model.addAttribute("teamlogin", Teamlogin);
 //		model.addAttribute("admin1", admin);
 //		SessionFactory sessionFactory=HibernateUtil.getFactory();
 //		Session session=sessionFactory.openSession();
@@ -131,6 +136,52 @@ public class AdminController {
 		return "index";
 	
 		
+	}
+	@RequestMapping(value = "/teamLogin", method = RequestMethod.GET)
+	public String teamLogin(Model model) {
+		System.out.println("in login get method");
+		Teamlogin Teamlogin = new Teamlogin();
+		model.addAttribute("teamlogin", Teamlogin);
+
+		Admin admin = new Admin();
+		model.addAttribute("admin", admin);
+
+		return "index";
+
+	}
+
+	@RequestMapping(value = "/teamLogin", method = RequestMethod.POST)
+	public String teamLogin(Model model, Teamlogin Teamlogin) {
+		System.out.println("in login post method");
+		System.out.println("tea"+Teamlogin);
+//		model.addAttribute("teamlogin1", Teamlogin);
+		ProblemStatement ps=new ProblemStatement();
+		model.addAttribute("problemstatement",ps);
+		SessionFactory sessionFactory = HibernateUtil.getFactory();
+		Session session = sessionFactory.openSession();
+
+		Transaction transaction = session.beginTransaction();
+
+		// session.save(admin);
+		// session.g
+		String sql = "from Teamlogin where name =:name and password=:password";
+		Query query = session.createQuery(sql);
+		query.setString("name", Teamlogin.getName());
+		query.setString("password", Teamlogin.getPassword());
+		List<Teamlogin> list = query.list();
+		System.out.println("list" + list);
+		if (list.size() != 0) {
+			System.out.println("list" + list);
+			return "team";
+		}
+		session.flush();
+
+		transaction.commit();
+
+		session.close();
+
+		return "index";
+
 	}
 	
 }
