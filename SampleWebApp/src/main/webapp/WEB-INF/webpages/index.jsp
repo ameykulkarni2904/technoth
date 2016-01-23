@@ -2,6 +2,8 @@
     pageEncoding="ISO-8859-1"%>
      <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -715,30 +717,43 @@
 		<!-- Essential jQuery Plugins
 		================================================== -->
 		<!-- Main jQuery -->
-        <script src="js/jquery-1.11.1.min.js"></script>
+       
+        <script src="<c:url value="/resources/js/jquery-1.11.1.min.js"/>"></script>
 		<!-- Single Page Nav -->
-        <script src="js/jquery.singlePageNav.min.js"></script>
+		
+        <script src="<c:url value="/resources/js/jquery.singlePageNav.min.js"/>"></script>
 		<!-- Twitter Bootstrap -->
-        <script src="js/bootstrap.min.js"></script>
+		<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+        
 		<!-- jquery.fancybox.pack -->
-        <script src="js/jquery.fancybox.pack.js"></script>
+		<script src="<c:url value="/resources/js/jquery.fancybox.pack.js"/>"></script>
+        
 		<!-- jquery.mixitup.min -->
-        <script src="js/jquery.mixitup.min.js"></script>
+		<script src="<c:url value="/resources/js/jquery.mixitup.min.js"/>"></script>
+        
 		<!-- jquery.parallax -->
-        <script src="js/jquery.parallax-1.1.3.js"></script>
+		<script src="<c:url value="/resources/js/jquery.parallax-1.1.3.js"/>"></script>
+        
 		<!-- jquery.countTo -->
-        <script src="js/jquery-countTo.js"></script>
+		<script src="<c:url value="/resources/js/jquery.parallax-1.1.3.js"/>"></script>
+		<script src="<c:url value="/resources/js/jquery-countTo.js"/>"></script>
+        
 		<!-- jquery.appear -->
-        <script src="js/jquery.appear.js"></script>
+        <script src="<c:url value="/resources/js/jquery.appear.js"/>"></script>
+        
 		<!-- Contact form validation -->
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.32/jquery.form.js"></script>
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.11.1/jquery.validate.min.js"></script>
+		<script src="<c:url value="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.32/jquery.form.js"/>"></script>
+		
+		<script src="<c:url value="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.11.1/jquery.validate.min.js"/>"></script>
+		
 		<!-- Google Map -->
         <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 		<!-- jquery easing -->
-        <script src="js/jquery.easing.min.js"></script>
+		<script src="<c:url value="/resources/js/jquery.easing.min.js"/>"></script>
+		
 		<!-- jquery easing -->
-        <script src="js/wow.min.js"></script>
+		<script src="<c:url value="/resources/js/wow.min.js"/>"></script>
+       
 		<script>
 			var wow = new WOW ({
 				boxClass:     'wow',      // animated element css class (default is wow)

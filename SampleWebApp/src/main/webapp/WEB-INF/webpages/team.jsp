@@ -20,16 +20,14 @@
 <title>Team home Page</title>
 
 <!-- Bootstrap Core CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
 
+<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>">
 <!-- Custom CSS -->
-<link href="css/sb-admin.css" rel="stylesheet">
 
+<link rel="stylesheet" href="<c:url value="/resources/css/sb-admin.css"/>">
 <!-- Custom Fonts -->
-<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
-	type="text/css">
 
-
+<link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css"/>">	
 
 </head>
 
@@ -233,10 +231,11 @@
 	<!-- /#wrapper -->
 
 	<!-- jQuery -->
-	<script src="js/jquery.js"></script>
-
+	
+	<script src="<c:url value="resources/js/jquery.js"/>"></script>
 	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
+	<script src="<c:url value="resources/js/bootstrap.min.js"/>"></script>
+	
 
 </body>
 

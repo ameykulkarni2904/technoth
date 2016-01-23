@@ -15,6 +15,8 @@ public class HibernateUtil {
 		configuration.addResource("com/psl/model/Teamlogin.hbm.xml");
 		configuration.addResource("com/psl/model/ProblemStatement.hbm.xml");
 		configuration.addResource("com/psl/model/SoftReq.hbm.xml");
+		configuration.addResource("com/psl/model/DailyReport.hbm.xml");
+
 		configuration.configure();
 		SessionFactory factory=configuration.buildSessionFactory();
 		return factory;

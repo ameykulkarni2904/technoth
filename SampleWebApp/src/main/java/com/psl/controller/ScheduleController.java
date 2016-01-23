@@ -24,11 +24,13 @@ public class ScheduleController {
 	//static int count =0; 
 	@RequestMapping(value="/add",method=RequestMethod.GET)
 	public String generateSchedule(Model model){
-		Schedule sc=new Schedule();
 		Milestone milestone=new Milestone();
+		
+		Schedule sc=new Schedule();
 		//Milestone milestone=new Milestone();
 		model.addAttribute("schedule",sc);
-		model.addAttribute("milestone",milestone);
+		model.addAttribute("milestone", milestone);
+		
 		
 		return "schedule";
 	}
@@ -127,11 +129,18 @@ public class ScheduleController {
 	
 	@RequestMapping(value="/milestone",method=RequestMethod.GET)
 	public String addMilestoneObject(Model model){
-		Milestone milestone=new Milestone();
+		System.out.println("in milestone get");
+		Milestone milestone1=new Milestone();
+		Milestone milestone2=new Milestone();
+		Milestone milestone3=new Milestone();
+		Milestone milestone4=new Milestone();
 		Schedule sc=new Schedule();
 		//Milestone milestone=new Milestone();
-		model.addAttribute("schedule",sc);
-		model.addAttribute("milestone", milestone);
+		
+		model.addAttribute("milestones", milestone1);
+		model.addAttribute("milestone2", milestone2);
+		model.addAttribute("milestone3", milestone3);
+		model.addAttribute("milestone4", milestone4);
 		
 		return "milestone";
 	}
@@ -140,7 +149,20 @@ public class ScheduleController {
 	@RequestMapping(value="/milestone",method=RequestMethod.POST)
 	public String addMilestone(Model model,Milestone milestone){
 //		int count =0;
+		Milestone milestone1=new Milestone();
+		Milestone milestone2=new Milestone();
+		Milestone milestone3=new Milestone();
+		Milestone milestone4=new Milestone();
+		Schedule sc=new Schedule();
+		//Milestone milestone=new Milestone();
 		
+		model.addAttribute("milestones", milestone1);
+		model.addAttribute("milestone2", milestone2);
+		model.addAttribute("milestone3", milestone3);
+		model.addAttribute("milestone4", milestone4);
+		
+		
+		System.out.println("in milestone post");
 		if(checkIfFirstMilestone()){
 //			milestone.setMilestoneId(count);
 			Schedule schedule=getSchedule();

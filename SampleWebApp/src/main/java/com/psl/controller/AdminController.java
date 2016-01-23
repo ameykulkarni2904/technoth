@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.psl.model.Admin;
+import com.psl.model.DailyReport;
 import com.psl.model.ProblemStatement;
 import com.psl.model.Teamlogin;
 import com.psl.dao.HibernateUtil;
@@ -41,6 +42,7 @@ public class AdminController {
 		Session session=factory.openSession();
 		
 		Transaction transaction= session.beginTransaction();
+
 		
 		//session.save(a);
 		
@@ -182,6 +184,37 @@ public class AdminController {
 
 		return "index";
 
+	}
+	
+	@RequestMapping(value="/displayreport",method=RequestMethod.GET)
+	public String loginpost(Model model){
+		//String teamName=new String();
+		DailyReport rep=new DailyReport();
+		model.addAttribute("team_name", rep);
+		return "DisplayReport";
+	}
+	@RequestMapping(value="/displayreport",method=RequestMethod.POST)
+	public String loginposts(Model model,DailyReport rep){
+		//String teamName=new String();
+		//model.addAttribute("team_name", teamName);
+		///DailyReport rep1=new DailyReport();
+		
+		SessionFactory sessionFactory=HibernateUtil.getFactory();
+		Session session=sessionFactory.openSession();
+		DailyReport dr=new DailyReport();
+		Transaction transaction= session.beginTransaction();
+		Query q=session.createQuery("from DailyReport");
+		//session.createCriteria(arg0, arg1)
+		List<DailyReport> dl=(List<DailyReport>)q.list();
+		for (DailyReport report :dl) {
+			if(rep.getTeam_name().equalsIgnoreCase(report.getTeam_name())){
+				dr=report;
+				break;
+			}
+		}
+		model.addAttribute("team_name", dr);
+		System.out.println("daily report"+dr);
+		return "DisplayReport";
 	}
 	
 }

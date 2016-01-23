@@ -6,16 +6,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
- <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css"/>">
+ 
+ 
+ <script src="<c:url value="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"/>"></script>
  <!-- <script src="js/jquery-1.11.0.min.js"></script> -->
 <script src="js/bootstrap.min.js"></script>
-
+<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 <script src="<c:url value="/resources/js/new.js"/>"></script>
 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
  
+ <script src="<c:url value="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"/>"></script>
     <!-- <script>
         var generateTextBoxes = function( qty, container ) {
             if (container) {
