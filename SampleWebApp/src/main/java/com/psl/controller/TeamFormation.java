@@ -29,13 +29,13 @@ public class TeamFormation {
 	
 	@RequestMapping(value="/team",method=RequestMethod.GET)
 	public String team(Model model){
-		return "team";
+		return "team1";
 	}
 	@RequestMapping(value="/team",method=RequestMethod.POST)
 	public String team(Model model,@RequestParam("size")String size){
 		System.out.println("Team size "+size);
 		teamFormation(Integer.parseInt(size));
-		return "team";
+		return "team1";
 	}
 	
 	public void teamFormation(int teamSize){

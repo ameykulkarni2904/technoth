@@ -2,8 +2,6 @@
     pageEncoding="ISO-8859-1"%>
      <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
-    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -49,13 +47,22 @@
 		<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" href="<c:url value="/resources/css/reset.css"/>"> <!-- CSS reset -->
-	<link rel="stylesheet" href="<c:url value="/resources/csscss/style.css"/>"> <!-- Gem style -->
+	<link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>"> <!-- Gem style -->
 	<script src="<c:url value="/resources/js/modernizr.js"/>"></script> <!-- Modernizr -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="<c:url value="/resources/js/main.js"/>"></script> <!-- Gem jQuery -->
 	
 	<!-- new css -->
 	 <link rel="stylesheet" href="<c:url value="/resources/css/timercss.css"/>"> <!-- CSS reset -->
+
+<!-- on 20th -->
+	
+	<link href="<c:url value="/resources/login-register.css"/>" rel="stylesheet" />
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+	
+	<script src="<c:url value="/resources/jquery/jquery-1.10.2.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/resources/bootstrap3/js/bootstrap.js"/>" type="text/javascript"></script>
+	<script src="<c:url value="/resources/login-register.js"/>" type="text/javascript"></script>
 
 	
     </head>
@@ -102,11 +109,19 @@
 						<li><a href="#contact">Forum</a></li>
                        
 						<li><nav class="main-nav">
-							<a class="cd-signin" href="#0" >Sign in</a></nav>
+							<!-- <a href="/TechnothonX11/login" >Sign in</a></nav> -->
+							<form action="login">
+							<input type="submit" value="Sign in">
+							</form>
 						</li>
 							<li><nav class="main-nav">
-							<a class="cd-signup" href="#0" >Sign up</a>
+							<form action="signup">
+							<input type="submit" value="Sign up">
+							</form>
 						</nav>
+						</li>
+						<li>
+							<a class="btn big-login" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">Team Log in</a>			
 						</li>
                     </ul>
                 </nav>
@@ -211,34 +226,33 @@
 			 <!-- new code -->
 			 <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
 		<div class="cd-user-modal-container"> <!-- this is the container wrapper -->
-			<ul class="cd-switcher">
-				<li><a href="#0">Sign in</a></li>
+			<!-- <ul class="cd-switcher">
+				<li><a href="/TechnothonX11/login">Sign in</a></li>
 				<li><a href="#0">New account</a></li>
-			</ul>
-
+			</ul> -->
 			<div id="cd-login"> <!-- log in form -->
 				<!-- <form class="cd-form" method="GET" action="http://10.44.206.112:8080/TechnothonX/login"> -->
-				<sf:form modelAttribute="admin" method="POST">
+				<sf:form modelAttribute="admin" action="/login" method="POST">
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="signin-email">E-mail</label>
-						<sf:input path="empID" class="full-width has-padding has-border" id="signin-email" type="text" placeholder="E-mail"/>
-						<span class="cd-error-message">Please enter correct email !</span>
+						<sf:input path="empID" type="text" placeholder="E-mail"/>
+						<!-- <span class="cd-error-message">Please enter correct email !</span> -->
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-password" for="signin-password">Password</label>
-						<sf:input path="pwd" class="full-width has-padding has-border" id="signin-password" type="text"  placeholder="Password"/>
-						<a href="#0" class="hide-password">Hide</a>
-						<span class="cd-error-message">Please enter valid password </span>
+						<sf:input path="pwd" type="text"  placeholder="Password"/>
+						<!-- <a href="#0" class="hide-password">Hide</a> -->
+					<!-- <span class="cd-error-message">Please enter valid password </span> -->
 					</p>
 
-					<p class="fieldset">
+					<!-- <p class="fieldset">
 						<input type="checkbox" id="remember-me" checked>
 						<label for="remember-me">Remember me</label>
-					</p>
+					</p> -->
 
 					<p class="fieldset">
-						<input class="full-width" type="submit" value="Login">
+						<input type="submit" value="Login">
 					</p>
 				</sf:form>
 				
@@ -247,36 +261,37 @@
 			</div> <!-- cd-login -->
 
 			<div id="cd-signup"> <!-- sign up form -->
-				<sf:form modelAttribute="admin" method="POST" class="cd-form">
+				<sf:form name="new12" modelAttribute="admin" method="POST" action="/signup" class="cd-form">
+			
 					<p class="fieldset">
 						<label class="image-replace cd-username" for="signup-username">Username</label>
 						<sf:input path="name" class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username"/>
-						<span class="cd-error-message">Please enter correct Username !</span>
+						<!-- <span class="cd-error-message">Please enter correct Username !</span> -->
 					</p>
 
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="signup-email">E-mail</label>
 						<sf:input path="emailID" class="full-width has-padding has-border" id="signup-email" type="email" placeholder="E-mail"/>
-						<span class="cd-error-message">Please enter correct email !</span>
+						<!-- <span class="cd-error-message">Please enter correct email !</span> -->
 					</p>
 					
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="signup-eid">Employee ID</label>
 						<sf:input path="empID" class="full-width has-padding has-border" id="signup-email" type="text" placeholder="E-mail"/>
-						<span class="cd-error-message">Please enter correct employee ID !</span>
+						<!-- <span class="cd-error-message">Please enter correct employee ID !</span> -->
 					</p>
 					
 					<p class="fieldset">
 						<label class="image-replace cd-password" for="signup-password">Password</label>
 						<sf:input path="pwd" class="full-width has-padding has-border" id="signup-password" type="text"  placeholder="Password"/>
-						<a href="#0" class="hide-password">Hide</a>
-						<span class="cd-error-message">Please enter valid password </span>
+						<!-- <a href="#0" class="hide-password">Hide</a>
+						<span class="cd-error-message">Please enter valid password </span> -->
 					</p>
 
-					<p class="fieldset">
+					<!-- <p class="fieldset">
 						<input type="checkbox" id="accept-terms">
 						<label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
-					</p>
+					</p> -->
 
 					<p class="fieldset">
 						<input class="full-width has-padding" type="submit" value="Create account">
@@ -307,6 +322,57 @@
 		</div> <!-- cd-user-modal-container -->
 	</div> <!-- cd-user-modal -->
 			 <!-- new code end -->
+			
+			<!-- new code -->
+			
+			<div class="container">
+       
+         
+		 <div class="modal fade login" id="loginModal">
+		      <div class="modal-dialog login animated">
+    		      <div class="modal-content">
+    		         <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Login with</h4>
+                    </div>
+                    <div class="modal-body">  
+                        <div class="box">
+                             <div class="content">
+                               
+                               
+                                <div class="error"></div>
+                                <div class="form loginBox">
+                                    
+                                    
+                                   <%--  <sf:form modelAttribute="teamlogin" method="POST" action="/TechnothonX11/teamLogin" accept-charset="UTF-8">
+                                    <sf:input path="name" id="name" class="form-control" type="text" placeholder="Team Name" name="name"/>
+                                    <sf:input path="password" id="password" class="form-control" type="password" placeholder="Password" name="password"/>
+                                    <input class="btn btn-default btn-login" type="submit" value="Login">
+                                    </sf:form> --%>
+
+                                </div>
+                             </div>
+                        </div>
+                        <div class="box">
+                            <div class="content registerBox" style="display:none;">
+                             <div class="form">
+                                <form method="post" html="{:multipart=>true}" data-remote="true" action="/register" accept-charset="UTF-8">
+                                <input id="email" class="form-control" type="text" placeholder="Email" name="email">
+                                <input id="password" class="form-control" type="password" placeholder="Password" name="password">
+                                <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
+                                <input class="btn btn-default btn-register" type="submit" value="Create account" name="commit">
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                         
+    		      </div>
+		      </div>
+		  </div>
+    </div>
+		<!-- new code -->
+			
 			
 		</section>
 		
@@ -364,7 +430,7 @@
 					<div class="col-md-4 wow fadeInRight" data-wow-duration="500ms"  data-wow-delay="900ms">
 						<div class="service-item">
 							<div class="service-icon">
-								<img src="<c:url value="/resources/img/comp1.png"/>" style="width: 88px">
+								<img src="<c:url value="/resources/img/comp1.PNG"/>" style="width: 88px">
 							</div>
 							
 							<div class="service-desc">
@@ -658,102 +724,36 @@
         ==================================== -->
 		
 		
-		<footer id="footer" class="footer">
-			<div class="container">
-				<div class="row">
-				
-					<div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms">
-						<div class="footer-single">
-							<!-- <img src="img/footer-logo.png" alt=""> -->
-							TechnothonX
-							</div>
-					</div>
-				
-					<div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="300ms">
-						<div class="footer-single">
-							<h6>Subscribe </h6>
-							<form action="#" class="subscribe">
-								<input type="text" name="subscribe" id="subscribe">
-								<input type="submit" value="&#8594;" id="subs">
-							</form>
-							
-						</div>
-					</div>
-				
-					<div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="600ms">
-						<div class="footer-single">
-							<h6>Explore</h6>
-							<ul>
-								<li><a href="#">Inside Us</a></li>
-								<li><a href="#">Google</a></li>
-								<li><a href="#">Forum</a></li>
-							</ul>
-						</div>
-					</div>
-				
-					<div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms" data-wow-delay="900ms">
-						<div class="footer-single">
-							<h6>Support</h6>
-							<ul>
-								<li><a href="#">Contact Us</a></li>
-								
-							</ul>
-						</div>
-					</div>
-					
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<p class="copyright text-center">
-							Copyright © 2016  All rights reserved
-						</p>
-					</div>
-				</div>
-			</div>
-		</footer>
 		
 		<a href="javascript:void(0);" id="back-top"><i class="fa fa-angle-up fa-3x"></i></a>
 
 		<!-- Essential jQuery Plugins
 		================================================== -->
 		<!-- Main jQuery -->
-       
         <script src="<c:url value="/resources/js/jquery-1.11.1.min.js"/>"></script>
 		<!-- Single Page Nav -->
-		
         <script src="<c:url value="/resources/js/jquery.singlePageNav.min.js"/>"></script>
 		<!-- Twitter Bootstrap -->
-		<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
-        
+        <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 		<!-- jquery.fancybox.pack -->
-		<script src="<c:url value="/resources/js/jquery.fancybox.pack.js"/>"></script>
-        
+        <script src="<c:url value="/resources/js/jquery.fancybox.pack.js"/>"></script>
 		<!-- jquery.mixitup.min -->
-		<script src="<c:url value="/resources/js/jquery.mixitup.min.js"/>"></script>
-        
+        <script src="<c:url value="/resources/js/jquery.mixitup.min.js"/>"></script>
 		<!-- jquery.parallax -->
-		<script src="<c:url value="/resources/js/jquery.parallax-1.1.3.js"/>"></script>
-        
+        <script src="<c:url value="/resources/js/jquery.parallax-1.1.3.js"/>"></script>
 		<!-- jquery.countTo -->
-		<script src="<c:url value="/resources/js/jquery.parallax-1.1.3.js"/>"></script>
-		<script src="<c:url value="/resources/js/jquery-countTo.js"/>"></script>
-        
+        <script src="<c:url value="/resources/js/jquery-countTo.js"/>"></script>
 		<!-- jquery.appear -->
         <script src="<c:url value="/resources/js/jquery.appear.js"/>"></script>
-        
 		<!-- Contact form validation -->
-		<script src="<c:url value="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.32/jquery.form.js"/>"></script>
-		
-		<script src="<c:url value="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.11.1/jquery.validate.min.js"/>"></script>
-		
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.32/jquery.form.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.11.1/jquery.validate.min.js"></script>
 		<!-- Google Map -->
         <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 		<!-- jquery easing -->
-		<script src="<c:url value="/resources/js/jquery.easing.min.js"/>"></script>
-		
+        <script src="<c:url value="/resources/js/jquery.easing.min.js"/>"></script>
 		<!-- jquery easing -->
-		<script src="<c:url value="/resources/js/wow.min.js"/>"></script>
-       
+        <script src="<c:url value="/resources/js/wow.min.js"/>"></script>
 		<script>
 			var wow = new WOW ({
 				boxClass:     'wow',      // animated element css class (default is wow)
@@ -766,7 +766,7 @@
 			wow.init();
 		</script> 
 		<!-- Custom Functions -->
-        <script src="js/custom.js"></script>
+        <script src="<c:url value="/resources/js/custom.js"/>"></script>
 		<!-- <script language="JavaScript">
 TargetDate = "12/1/2016 5:00 AM";
 BackColor = "black";
