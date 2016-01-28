@@ -8,6 +8,10 @@
 <!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
     <head>
+    <%-- <%
+    session.setAttribute("flag", null);
+    
+    %> --%>
     	<!-- meta charec set -->
         <meta charset="utf-8">
 		<!-- Always force latest IE rendering engine or request Chrome Frame -->

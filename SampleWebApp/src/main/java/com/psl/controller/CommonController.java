@@ -29,59 +29,59 @@
 //		m.addAttribute("teamlogin", Teamlogin);
 //		return "index";
 //	}
-//	
-//	@RequestMapping(value = "/signup", method = RequestMethod.GET)
-//	public String addAdmin(HttpSession httpSession, Model m) {
-//		// Admin a = new Admin("abc","abc@gmail.com",12345);
-//		// m.addAttribute("admin", a);
-//		Admin admin = new Admin();
-//		m.addAttribute("admin", admin);
-//
-//		Teamlogin Teamlogin = new Teamlogin();
-//		m.addAttribute("teamlogin", Teamlogin);
-//		// out.print(a.getEmailID());
-//		
-//		
-//		Configuration configuration = new Configuration();
-//		configuration.addResource("com/psl/model/Admin.hbm.xml");
-//		configuration.configure();
-//		SessionFactory factory = configuration.buildSessionFactory();
-//		Session session = factory.openSession();
-//
-//		Transaction transaction = session.beginTransaction();
-//
-//		// session.save(a);
-//
-//		session.flush();
-//
-//		transaction.commit();
-//
-//		session.close();
-//		return "home";
-//	}
-//	
-//	@RequestMapping(value = "/login", method = RequestMethod.GET)
-//	public String login(Model model) {
-//		System.out.println("in login get method");
-//		Admin admin = new Admin();
-//		Teamlogin Teamlogin = new Teamlogin();
-//		model.addAttribute("teamlogin", Teamlogin);
-//		model.addAttribute("admin", admin);
-//
-//		return "login";
-//
-//	}
-//	
-//	@RequestMapping(value = "/teamLogin", method = RequestMethod.GET)
-//	public String teamLogin(Model model) {
-//		System.out.println("in login get method");
-//		Teamlogin Teamlogin = new Teamlogin();
-//		model.addAttribute("teamlogin", Teamlogin);
-//
-//		Admin admin = new Admin();
-//		model.addAttribute("admin", admin);
-//
-//		return "teamlogin";
-//
-//	}
+////	
+////	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+////	public String addAdmin(HttpSession httpSession, Model m) {
+////		// Admin a = new Admin("abc","abc@gmail.com",12345);
+////		// m.addAttribute("admin", a);
+////		Admin admin = new Admin();
+////		m.addAttribute("admin", admin);
+////
+////		Teamlogin Teamlogin = new Teamlogin();
+////		m.addAttribute("teamlogin", Teamlogin);
+////		// out.print(a.getEmailID());
+////		
+////		
+////		Configuration configuration = new Configuration();
+////		configuration.addResource("com/psl/model/Admin.hbm.xml");
+////		configuration.configure();
+////		SessionFactory factory = configuration.buildSessionFactory();
+////		Session session = factory.openSession();
+////
+////		Transaction transaction = session.beginTransaction();
+////
+////		// session.save(a);
+////
+////		session.flush();
+////
+////		transaction.commit();
+////
+////		session.close();
+////		return "home";
+////	}
+////	
+////	@RequestMapping(value = "/login", method = RequestMethod.GET)
+////	public String login(Model model) {
+////		System.out.println("in login get method");
+////		Admin admin = new Admin();
+////		Teamlogin Teamlogin = new Teamlogin();
+////		model.addAttribute("teamlogin", Teamlogin);
+////		model.addAttribute("admin", admin);
+////
+////		return "login";
+////
+////	}
+////	
+////	@RequestMapping(value = "/teamLogin", method = RequestMethod.GET)
+////	public String teamLogin(Model model) {
+////		System.out.println("in login get method");
+////		Teamlogin Teamlogin = new Teamlogin();
+////		model.addAttribute("teamlogin", Teamlogin);
+////
+////		Admin admin = new Admin();
+////		model.addAttribute("admin", admin);
+////
+////		return "teamlogin";
+////
+////	}
 //}

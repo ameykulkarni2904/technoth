@@ -20,9 +20,9 @@
 <mvc:resources mapping="/resources/**" location="/resources/"  
 	cache-period="31556926"/>
 	
-<!-- <mvc:interceptors>
+  <!-- <mvc:interceptors>
         <bean class="com.psl.util.SessionValidator" />
-</mvc:interceptors> -->
+</mvc:interceptors>  --> 
 <bean id="multipartResolver"
         class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 

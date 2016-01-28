@@ -15,14 +15,17 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.psl.dao.DaoOps;
 import com.psl.dao.HibernateUtil;
 import com.psl.model.Admin;
 import com.psl.model.ProblemStatement;
+import com.psl.model.Team;
 import com.psl.model.Teamlogin;
 
 @Controller
@@ -30,12 +33,16 @@ import com.psl.model.Teamlogin;
 public class AdminController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String add(Model m) {
+	public String add(Model m,HttpSession httpSession) {
 		Admin admin = new Admin();
 		m.addAttribute("admin", admin);
-
+		
 		Teamlogin Teamlogin = new Teamlogin();
 		m.addAttribute("teamlogin", Teamlogin);
+		
+		httpSession.setAttribute("userName", "");
+
+		
 		return "index";
 	}
 
@@ -95,20 +102,20 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login(Model model) {
+	public String login(Model model,HttpSession response) {
 		System.out.println("in login get method");
 		Admin admin = new Admin();
 		Teamlogin Teamlogin = new Teamlogin();
 		model.addAttribute("teamlogin", Teamlogin);
 		model.addAttribute("admin", admin);
-
+		System.out.println(response.getAttribute("flag"));
 		return "login";
 
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginpost(@CookieValue(value = "userName", defaultValue = " ") String userName,
-			HttpServletResponse response, Model model, Admin admin) {
+			HttpServletResponse response, Model model, Admin admin, HttpSession httpSession) {
 		System.out.println("in login post method");
 		// model.addAttribute("admin1", admin);
 		SessionFactory sessionFactory = HibernateUtil.getFactory();
@@ -126,10 +133,12 @@ public class AdminController {
 		System.out.println("list" + list);
 		if (list.size() != 0) {
 			System.out.println("list" + list);
-			Cookie cookie = new Cookie("userName", list.get(0).getName());
-			cookie.setMaxAge(24*3600);
-			response.addCookie(cookie);
-			System.out.println(list.get(0));
+//			Cookie cookie = new Cookie("userName", list.get(0).getName());
+//			cookie.setMaxAge(24*3600);
+//			response.addCookie(cookie);
+//			System.out.println(list.get(0));
+
+			httpSession.setAttribute("userName", list.get(0).getName());
 
 			return "AdminMain";
 		}
@@ -144,17 +153,19 @@ public class AdminController {
 	}
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logoutpost(@CookieValue(value = "userName", defaultValue = " ") String userName,
-			HttpServletResponse response, Model model) {
+			HttpServletResponse response, Model model, HttpSession httpSession) {
 		
 		Admin admin = new Admin();
 		Teamlogin Teamlogin = new Teamlogin();
 		model.addAttribute("teamlogin", Teamlogin);
 		model.addAttribute("admin", admin);
 		
-		//response.
-		Cookie cookie = new Cookie("userName", "");
-		cookie.setMaxAge(0);
-		response.addCookie(cookie);
+//		//response.
+//		Cookie cookie = new Cookie("userName", "");
+//		cookie.setMaxAge(0);
+//		response.addCookie(cookie);
+		
+		httpSession.setAttribute("userName", "");
 		
 		return "index";
 	}
@@ -205,4 +216,36 @@ public class AdminController {
 		return "index";
 
 	}
+	@RequestMapping(value = "/claimTeam", method = RequestMethod.GET)
+	public String claimTeam(Model m, HttpSession httpSession) {
+		Team team=new Team();
+		m.addAttribute("team",team);
+		DaoOps dao=new DaoOps();
+		List<Integer> list=dao.getTeamCount();
+		m.addAttribute("teamlist", list);
+		Admin admin = new Admin();
+		m.addAttribute("admin", admin);
+		
+		Teamlogin Teamlogin = new Teamlogin();
+		m.addAttribute("teamlogin", Teamlogin);
+		if(httpSession.getAttribute("userName") == ""){
+			return "index";
+		}
+		return "claimTeam";
+	}
+	@RequestMapping(value = "/claimTeam", method = RequestMethod.POST)
+	public String claimTeam(Model m,Team team) {
+		//Team team=new Team();
+		m.addAttribute("team",team);
+		DaoOps dao=new DaoOps();
+		List<Integer> list=dao.getTeamCount();
+		m.addAttribute("teamlist", list);
+		
+		m.addAttribute("msg",dao.addTeam(team));
+		return "claimTeam";
+	}
+
+	
+	
+	
 }
