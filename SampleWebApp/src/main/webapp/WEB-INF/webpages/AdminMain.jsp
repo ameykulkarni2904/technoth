@@ -47,7 +47,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Technothon Admin</a>
+                <a class="navbar-brand" href="index.html">${cookie.userName.value} </a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -143,7 +143,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href=<c:url value="/logout"/>"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
@@ -152,7 +152,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="uploadParticipantList.html"><i class="fa fa-fw fa-dashboard"></i>Upload Participant List</a>
+                        <a href="uploadFileXls"><i class="fa fa-fw fa-dashboard"></i>Upload Participant List</a>
                     </li>
                     <li>
                         <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i>Team Details</a>

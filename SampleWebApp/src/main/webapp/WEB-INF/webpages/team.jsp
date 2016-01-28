@@ -133,7 +133,7 @@
 					<li><a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
 					</li>
 					<li class="divider"></li>
-					<li><a href="#"><i class="fa fa-fw fa-power-off"></i> Log
+					<li><a href=<c:url value="/logout"/>"><i class="fa fa-fw fa-power-off"></i> Log
 							Out</a></li>
 				</ul></li>
 		</ul>

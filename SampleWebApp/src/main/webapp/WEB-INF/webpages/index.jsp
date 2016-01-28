@@ -109,19 +109,19 @@
 						<li><a href="#contact">Forum</a></li>
                        
 						<li><nav class="main-nav">
-							<!-- <a href="/TechnothonX11/login" >Sign in</a></nav> -->
-							<form action="login">
-							<input type="submit" value="Sign in">
-							</form>
+							 <form action="login" >
+							<input type="submit"  value="Sign in" class="cd-signin">
+							</form> 
+							</nav>
 						</li>
 							<li><nav class="main-nav">
-							<form action="signup">
-							<input type="submit" value="Sign up">
-							</form>
-						</nav>
+							<form action="signup" >
+							<input type="submit" value="Sign up" >
+							</form> 
+							</nav>
 						</li>
 						<li>
-							<a class="btn big-login" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();">Team Log in</a>			
+							<a class="btn big-login" data-toggle="modal" onclick="openLoginModal();" href="<c:url value="/teamLogin"/>">Team Log in</a>			
 						</li>
                     </ul>
                 </nav>
@@ -158,7 +158,7 @@
 				<div class="carousel-inner" role="listbox">
 					
 					<!-- single slide -->
-					<div class="item active" style="background-image: url(resources/img/banner.jpg);">
+					<div class="item active" style="background-image: url(resources/img/banner.jpg); height: 650px;">
 					
 					<!-- timer -->
 		<h1>Countdown Clock</h1>
@@ -344,11 +344,11 @@
                                 <div class="form loginBox">
                                     
                                     
-                                   <%--  <sf:form modelAttribute="teamlogin" method="POST" action="/TechnothonX11/teamLogin" accept-charset="UTF-8">
+                                   <sf:form modelAttribute="teamlogin" method="POST" action="/TechnothonX/teamLogin" accept-charset="UTF-8">
                                     <sf:input path="name" id="name" class="form-control" type="text" placeholder="Team Name" name="name"/>
                                     <sf:input path="password" id="password" class="form-control" type="password" placeholder="Password" name="password"/>
                                     <input class="btn btn-default btn-login" type="submit" value="Login">
-                                    </sf:form> --%>
+                                    </sf:form> 
 
                                 </div>
                              </div>

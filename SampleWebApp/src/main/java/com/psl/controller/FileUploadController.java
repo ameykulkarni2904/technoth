@@ -23,19 +23,19 @@ import com.psl.dao.HibernateUtil;
 
 
 @Controller
-@RequestMapping(value="/file")
+//@RequestMapping(value="/file")
 public class FileUploadController {
 
     /*private static final Logger logger = LoggerFactory
             .getLogger(FileUploadController.class);*/
 
-    @RequestMapping(value={"/fi"}, method=RequestMethod.GET)
+    @RequestMapping(value={"/uploadFileXls"}, method=RequestMethod.GET)
     public String uploadPage(){
        
-        return "upload";       
+        return "uploadParticipantList";       
     }
    
-    @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+    @RequestMapping(value = "/uploadFileXls", method = RequestMethod.POST)
     public @ResponseBody
     String uploadFileHandler(@RequestParam("name") String name,
             @RequestParam("file") MultipartFile file) {
@@ -45,8 +45,8 @@ public class FileUploadController {
                 byte[] bytes = file.getBytes();
 
                 // Creating the directory to store file
-                String rootPath = "C:\\";//System.getProperty("catalina.home");
-                File dir = new File(rootPath + File.separator + "tmpFiles");
+                String rootPath = "C:\\";
+                File dir = new File(rootPath + File.separator + "xlsFiles");
               //  if (!dir.exists())
                     dir.mkdirs();
 //name = "info.xls"

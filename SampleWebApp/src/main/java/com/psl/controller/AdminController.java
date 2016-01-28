@@ -4,18 +4,21 @@ package com.psl.controller;
 
 import java.util.List;
 
-import org.apache.catalina.core.ApplicationContext;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.springframework.aop.framework.adapter.*;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.psl.dao.HibernateUtil;
 import com.psl.model.Admin;
@@ -25,6 +28,16 @@ import com.psl.model.Teamlogin;
 @Controller
 // @RequestMapping(value="/admin")
 public class AdminController {
+
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String add(Model m) {
+		Admin admin = new Admin();
+		m.addAttribute("admin", admin);
+
+		Teamlogin Teamlogin = new Teamlogin();
+		m.addAttribute("teamlogin", Teamlogin);
+		return "index";
+	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public String addAdmin(Model m) {
@@ -56,10 +69,14 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
+	@ResponseBody
 	public String signup(Model model, Admin admin) {
 		System.out.println("in signup post");
 		model.addAttribute("admin1", admin);
-		System.out.println("admin 1 "+admin);
+		System.out.println("admin 1 " + admin);
+
+		
+
 		SessionFactory sessionFactory = HibernateUtil.getFactory();
 		Session session = sessionFactory.openSession();
 
@@ -72,9 +89,9 @@ public class AdminController {
 		transaction.commit();
 
 		session.close();
-		
-		 return "redirect:login";
-//		return "login";
+
+		return "redirect:login";
+		// return "login";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -90,9 +107,10 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String loginpost(Model model, Admin admin) {
+	public String loginpost(@CookieValue(value = "userName", defaultValue = " ") String userName,
+			HttpServletResponse response, Model model, Admin admin) {
 		System.out.println("in login post method");
-//		model.addAttribute("admin1", admin);
+		// model.addAttribute("admin1", admin);
 		SessionFactory sessionFactory = HibernateUtil.getFactory();
 		Session session = sessionFactory.openSession();
 
@@ -108,6 +126,11 @@ public class AdminController {
 		System.out.println("list" + list);
 		if (list.size() != 0) {
 			System.out.println("list" + list);
+			Cookie cookie = new Cookie("userName", list.get(0).getName());
+			cookie.setMaxAge(24*3600);
+			response.addCookie(cookie);
+			System.out.println(list.get(0));
+
 			return "AdminMain";
 		}
 		session.flush();
@@ -119,6 +142,22 @@ public class AdminController {
 		return "index";
 
 	}
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logoutpost(@CookieValue(value = "userName", defaultValue = " ") String userName,
+			HttpServletResponse response, Model model) {
+		
+		Admin admin = new Admin();
+		Teamlogin Teamlogin = new Teamlogin();
+		model.addAttribute("teamlogin", Teamlogin);
+		model.addAttribute("admin", admin);
+		
+		//response.
+		Cookie cookie = new Cookie("userName", "");
+		cookie.setMaxAge(0);
+		response.addCookie(cookie);
+		
+		return "index";
+	}
 
 	@RequestMapping(value = "/teamLogin", method = RequestMethod.GET)
 	public String teamLogin(Model model) {
@@ -129,17 +168,17 @@ public class AdminController {
 		Admin admin = new Admin();
 		model.addAttribute("admin", admin);
 
-		return "index";
+		return "teamlogin";
 
 	}
 
 	@RequestMapping(value = "/teamLogin", method = RequestMethod.POST)
 	public String teamLogin(Model model, Teamlogin Teamlogin) {
 		System.out.println("in login post method");
-		System.out.println("tea"+Teamlogin);
-//		model.addAttribute("teamlogin1", Teamlogin);
-		ProblemStatement ps=new ProblemStatement();
-		model.addAttribute("problemstatement",ps);
+		System.out.println("tea" + Teamlogin);
+		// model.addAttribute("teamlogin1", Teamlogin);
+		ProblemStatement ps = new ProblemStatement();
+		model.addAttribute("problemstatement", ps);
 		SessionFactory sessionFactory = HibernateUtil.getFactory();
 		Session session = sessionFactory.openSession();
 
