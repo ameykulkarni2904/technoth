@@ -30,6 +30,9 @@
     <link href="<c:url value="/resources/font-awesometeam/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css">
 
    
+<!-- Morris Charts CSS -->
+
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/cssteam/plugins/morris.css"/>">
 
 
 </head>
@@ -48,146 +51,44 @@
 			</button>
 			<a class="navbar-brand" href="index.html">Technothon Admin</a>
 		</div>
-		<!-- Top Menu Items -->
-		<ul class="nav navbar-right top-nav">
-			<li class="dropdown"><a href="#" class="dropdown-toggle"
-				data-toggle="dropdown"><i class="fa fa-envelope"></i> <b
-					class="caret"></b></a>
-				<ul class="dropdown-menu message-dropdown">
-					<li class="message-preview"><a href="#">
-							<div class="media">
-								<span class="pull-left"> <img class="media-object"
-									src="http://placehold.it/50x50" alt="">
-								</span>
-								<div class="media-body">
-									<h5 class="media-heading">
-										<strong>John Smith</strong>
-									</h5>
-									<p class="small text-muted">
-										<i class="fa fa-clock-o"></i> Yesterday at 4:32 PM
-									</p>
-									<p>Lorem ipsum dolor sit amet, consectetur...</p>
-								</div>
-							</div>
-					</a></li>
-					<li class="message-preview"><a href="#">
-							<div class="media">
-								<span class="pull-left"> <img class="media-object"
-									src="http://placehold.it/50x50" alt="">
-								</span>
-								<div class="media-body">
-									<h5 class="media-heading">
-										<strong>John Smith</strong>
-									</h5>
-									<p class="small text-muted">
-										<i class="fa fa-clock-o"></i> Yesterday at 4:32 PM
-									</p>
-									<p>Lorem ipsum dolor sit amet, consectetur...</p>
-								</div>
-							</div>
-					</a></li>
-					<li class="message-preview"><a href="#">
-							<div class="media">
-								<span class="pull-left"> <img class="media-object"
-									src="http://placehold.it/50x50" alt="">
-								</span>
-								<div class="media-body">
-									<h5 class="media-heading">
-										<strong>John Smith</strong>
-									</h5>
-									<p class="small text-muted">
-										<i class="fa fa-clock-o"></i> Yesterday at 4:32 PM
-									</p>
-									<p>Lorem ipsum dolor sit amet, consectetur...</p>
-								</div>
-							</div>
-					</a></li>
-					<li class="message-footer"><a href="#">Read All New
-							Messages</a></li>
-				</ul></li>
-			<li class="dropdown"><a href="#" class="dropdown-toggle"
-				data-toggle="dropdown"><i class="fa fa-bell"></i> <b
-					class="caret"></b></a>
-				<ul class="dropdown-menu alert-dropdown">
-					<li><a href="#">Alert Name <span
-							class="label label-default">Alert Badge</span></a></li>
-					<li><a href="#">Alert Name <span
-							class="label label-primary">Alert Badge</span></a></li>
-					<li><a href="#">Alert Name <span
-							class="label label-success">Alert Badge</span></a></li>
-					<li><a href="#">Alert Name <span class="label label-info">Alert
-								Badge</span></a></li>
-					<li><a href="#">Alert Name <span
-							class="label label-warning">Alert Badge</span></a></li>
-					<li><a href="#">Alert Name <span
-							class="label label-danger">Alert Badge</span></a></li>
-					<li class="divider"></li>
-					<li><a href="#">View All</a></li>
-				</ul></li>
-			<li class="dropdown"><a href="#" class="dropdown-toggle"
-				data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b
-					class="caret"></b></a>
-				<ul class="dropdown-menu">
-					<li><a href="#"><i class="fa fa-fw fa-user"></i> Profile</a></li>
-
-					<li><a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-					</li>
-					<li class="divider"></li>
-					<li><a href="#"><i class="fa fa-fw fa-power-off"></i> Log
-							Out</a></li>
-				</ul></li>
-		</ul>
+		 <!-- Top Menu Items -->
+          <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    
+                        
+                        <li class="message-footer">
+                            <a href="<c:url value="/logout"/>">Logout</a>
+                        </li>
+                    </ul>
+                </li>
+                </ul>
 		<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                    
-                    <a href="<c:url value="uploadFileXls"/>"><i class="fa fa-fw fa-edit"></i>Upload Participant List</a>
-                    
-                        
-                    </li>
-                   
-                    
-                    <li>
-                    <a href="<c:url value="claimTeam"/>"><i class="fa fa-fw fa-edit"></i> Claim Teams</a>
-                        
-                    </li>
-                    
-                    <li>
-                    <a href="<c:url value="schedule1/add"/>"><i class="fa fa-fw fa-edit"></i>Schedule Generation</a>
-                        
-                    </li>
-                    
-                    <li>
-                    <a href="<c:url value="displayproblem"/>"><i class="fa fa-fw fa-edit"></i>Problem Statement Status</a>
-                        
-                    </li>
-                    
-                    <li>
-                    <a href="<c:url value="/uploadFileXls"/>"><i class="fa fa-fw fa-edit"></i>Upload Participant List</a>
-                        
-                    </li>
-                    
-					<li>
-					<a href="<c:url value="displayreport"/>"><i class="fa fa-fw fa-edit"></i>Report Generation</a>
-                       
-                    </li>
-                    
-					<li>
-					<a href="<c:url value="sendEmail"/>"><i class="fa fa-fw fa-edit"></i>Send Emails</a>
-                        
-                    </li>
-					
-					<%-- <li>
-					<a href="<c:url value="/uploadFileXls"/>"><i class="fa fa-fw fa-edit"></i>Upload Participant List</a>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i>Rss Feeds</a>
-                    </li> --%>
-                    
-                    
-					<li>
-					<a href="<c:url value="grade"/>"><i class="fa fa-fw fa-edit"></i>Feedback</a>
-                       
-                    </li>
+                    <li class="active"><a href="uploadFileXls"><i
+							class="fa fa-fw fa-edit"></i>Upload Participant List</a></li>
+
+
+					<li><a href="claimTeam"><i class="fa fa-fw fa-edit"></i>
+							Claim Teams</a></li>
+
+					<li><a href="add"><i class="fa fa-fw fa-edit"></i>Schedule
+							Generation</a></li>
+
+					<li><a href="displayproblem"><i class="fa fa-fw fa-edit"></i>Problem
+							Statement Status</a></li>
+
+
+					<li><a href="displayreport"><i class="fa fa-fw fa-edit"></i>Report
+							Generation</a></li>
+							
+					<li><a href="team"><i class="fa fa-fw fa-edit"></i>Team
+							Formation</a></li>
+							
+
+					<li><a href="<c:url value="sendEmail"/>"><i
+							class="fa fa-fw fa-edit"></i>Send Emails</a></li>
+
                     
                 </ul>
             </div>
@@ -246,12 +147,7 @@
 							<input type="submit" value="Claim" class="btn btn-default">
 							<input type="reset" class="btn btn-default" value="Reset">
 
-							<br>
-							<br>
-							<br>
-							<br>
-							<br>
-							<br>
+							<br><br><br><br><br><br><br><br><br>
 
 
 						</sf:form>

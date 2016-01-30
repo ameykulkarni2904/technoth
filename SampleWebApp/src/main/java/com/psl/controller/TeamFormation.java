@@ -11,6 +11,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,17 +27,45 @@ import com.psl.model.Participant;
 import com.psl.model.Schedule;
 
 @Controller
-@RequestMapping(value="/teamformation")
+//@RequestMapping(value="/teamformation")
 public class TeamFormation {
+	
+	@Autowired
+	private JavaMailSender mailSender;
 	
 	@RequestMapping(value="/team",method=RequestMethod.GET)
 	public String team(Model model){
+		List<Participant> list=getParticipants();
+		model.addAttribute("lst", list);
+		
 		return "team1";
+	}
+	private List<Participant> getParticipants() {
+		// TODO Auto-generated method stub
+		
+		SessionFactory sessionFactory=HibernateUtil.getFactory();
+		Session session=sessionFactory.openSession();
+		Transaction transaction= session.beginTransaction();
+		//session.save(milestone);
+		Query q=session.createQuery("from Participant");
+	
+		List<Participant> list=q.list();
+		for (Participant participant : list) {
+			System.out.println("particpant: "+participant);
+		}
+		session.close();
+		
+		return list;
+		
+		
+//		return null;
 	}
 	@RequestMapping(value="/team",method=RequestMethod.POST)
 	public String team(Model model,@RequestParam("size")String size){
 		System.out.println("Team size "+size);
 		teamFormation(Integer.parseInt(size));
+		List<Participant> list=getParticipants();
+		model.addAttribute("lst", list);
 		return "team1";
 	}
 	
@@ -47,7 +78,7 @@ public class TeamFormation {
 		List<String> batches=getBatches(list);
 		int no_of_batches=batches.size();
 		Map<String,List<Participant>> map=new HashMap();
-		
+	
 		for (String string : batches) {
 			map.put(string, new ArrayList<Participant>());
 		}
@@ -124,16 +155,29 @@ public class TeamFormation {
 				}	
 			}*/
 			
-			
+			String subject = null, msg = null;
+			subject = "Regarding team formation for Technothon Event";
+			// sending mail to individual teams and members
 			for (Map.Entry<Integer, List<Participant>> team : teamMap.entrySet()) {
-				System.out.println("Team"+team.getKey()+": ");
+				System.out.println("Team" + team.getKey() + ": ");
+				int cnt = 0;
+				String recipientAddresses[] = {};
+				msg = "Your team number is "
+						+ team.getKey()
+						+ ". Go to admin of event to claim your team. Your team members are in the \'To\' section of this mail.";
 				for (Participant p : team.getValue()) {
-					System.out.println(" member: "+p.getEmployee_name());
+					System.out.println(" member: " + p.getEmployee_name());
+
+					recipientAddresses[cnt] = p.getMail_id();
+
 				}
+
+				doSendEmail(recipientAddresses, subject, msg);
 				System.out.println("-----------------------------------------");
 			}
 			
 			storeTeams(teamMap);
+			
 		
 	}
 	
@@ -205,6 +249,17 @@ public class TeamFormation {
 	}
 	
 	
-	
+	public void doSendEmail(String recipientAddresses[], String subject,
+			String message) {
+
+		SimpleMailMessage email = new SimpleMailMessage();
+
+		email.setTo(recipientAddresses);
+		email.setSubject(subject);
+		email.setText(message);
+
+		mailSender.send(email);
+
+	}
 	
 }

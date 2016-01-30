@@ -145,7 +145,7 @@
                     <label for="username">Username:</label>
                     <sf:input path="empID"/><sf:errors path="empID"></sf:errors><br>
                     <label for="password">Password:</label>
-                    <sf:input path="pwd"/><sf:errors path="pwd"></sf:errors><br><div id="lower">
+                    <sf:input path="pwd" type="password"  /><sf:errors path="pwd"></sf:errors><br><div id="lower">
                         <input type="checkbox"><label class="check" for="checkbox">Keep me logged in</label>
                         <input type="submit" value="Login">
                     </div><!--/ lower-->

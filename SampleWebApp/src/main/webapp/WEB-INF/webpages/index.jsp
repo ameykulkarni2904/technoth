@@ -108,24 +108,40 @@
                     <ul id="nav" class="nav navbar-nav">
                         <li class="current"><a href="#body">Home</a></li>
                         <li><a href="#features">Features</a></li>
-                        <li><a href="#works">Gallary</a></li>
+                        
                         <li><a href="#team">Rounds</a></li>
 						<li><a href="#contact">Forum</a></li>
                        
 						<li><nav class="main-nav">
-							 <form action="login" >
-							<input type="submit"  value="Sign in" class="cd-signin">
+							 <form action="login" id="my_form" >
+							<!-- <input type="submit" style= margin-top:15px value="Sign in"  >
+							 -->
+							<a class="cd-signin" href=href="javascript:{}" onclick="document.getElementById('my_form').submit(); return false;" >Sign in</a>
+							
 							</form> 
 							</nav>
 						</li>
+						
+							
+						
+						
+						
 							<li><nav class="main-nav">
-							<form action="signup" >
-							<input type="submit" value="Sign up" >
+							<form action="signup" id="my_form1"  >
+							<!-- <input type="submit" style=margin-top:15px  value="Sign up"  > -->
+							
+							<a class="cd-signin" href=href="javascript:{}" onclick="document.getElementById('my_form1').submit(); return false;" >Sign up</a>
+							
+							
+							
 							</form> 
 							</nav>
 						</li>
 						<li>
-							<a class="btn big-login" data-toggle="modal" onclick="openLoginModal();" href="<c:url value="/teamLogin"/>">Team Log in</a>			
+						
+						
+						
+							<a class="cd-signin" data-toggle="modal" onclick="openLoginModal();" href="<c:url value="/teamLogin"/>">Team Login</a>			
 						</li>
                     </ul>
                 </nav>
@@ -459,7 +475,7 @@
         Our Works
         ==================================== -->
 		
-		<section id="works" class="works clearfix">
+		<!-- <section id="works" class="works clearfix">
 			<div class="container">
 				<div class="row">
 				
@@ -467,7 +483,7 @@
 						<h2>Gallary</h2>
 						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
 					</div>
-					
+					 -->
 					<!-- <div class="sec-sub-title text-center">
 						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>
 					</div>
@@ -559,10 +575,9 @@
 					</figcaption>
 				</figure>
 				
-			</div> -->
+			<!-- </div> -->
 		
 
-		</section>
 		
         <!--
         End Our Works
@@ -660,7 +675,7 @@
 				<div class="row mb50">
 				
 					<div class="sec-title text-center mb50 wow fadeInDown animated" data-wow-duration="500ms">
-						<h2>Let’s Discuss</h2>
+						<h2>Contact Us</h2>
 						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
 					</div>
 					

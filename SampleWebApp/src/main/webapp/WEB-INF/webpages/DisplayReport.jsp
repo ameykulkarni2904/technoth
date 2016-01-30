@@ -54,143 +54,46 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="admin.html">SB Admin</a>
+                <a class="navbar-brand" href="admin.html">Technothon Admin</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu message-dropdown">
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
+                    
+                        
                         <li class="message-footer">
-                            <a href="#">Read All New Messages</a>
+                            <a href="<c:url value="/logout"/>">Logout</a>
                         </li>
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu alert-dropdown">
-                        <li>
-                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">View All</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+                </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
            <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        <a href="uploadParticipantList.html"><i class="fa fa-fw fa-dashboard"></i>Upload Participant List</a>
-                    </li>
-                    <li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i>Team Details</a>
-                    </li>
-                    <li>
-                        <a href="claimTeam.html"><i class="fa fa-fw fa-table"></i> Claim Teams</a>
-                    </li>
-                    <li>
-                        <a href="generateSchedule.html"><i class="fa fa-fw fa-edit"></i>Schedule Generation</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i>Problem Statement Status</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i>Software Requirement Status</a>
-                    </li>
-					<li>
-                        <a href="displayReport.html"><i class="fa fa-fw fa-wrench"></i>Report Generation</a>
-                    </li>
-					<li>
-                        <a href="sendEmail.html"><i class="fa fa-fw fa-wrench"></i>Send Emails</a>
-                    </li>
-					
-					<li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i>Rss Feeds</a>
-                    </li>
-					<li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i>Feedback</a>
-                    </li>
+                    <li class="active"><a href="uploadFileXls"><i
+							class="fa fa-fw fa-edit"></i>Upload Participant List</a></li>
+
+
+					<li><a href="claimTeam"><i class="fa fa-fw fa-edit"></i>
+							Claim Teams</a></li>
+
+					<li><a href="add"><i class="fa fa-fw fa-edit"></i>Schedule
+							Generation</a></li>
+
+					<li><a href="displayproblem"><i class="fa fa-fw fa-edit"></i>Problem
+							Statement Status</a></li>
+
+
+					<li><a href="displayreport"><i class="fa fa-fw fa-edit"></i>Report
+							Generation</a></li>
+							
+					<li><a href="team"><i class="fa fa-fw fa-edit"></i>Team
+							Formation</a></li>
+							
+
+					<li><a href="<c:url value="sendEmail"/>"><i
+							class="fa fa-fw fa-edit"></i>Send Emails</a></li>
+
                     
                 </ul>
             </div>
@@ -209,7 +112,7 @@
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="admin.html">Dashboard</a>
+                                <i class="fa fa-dashboard"></i>  <a href="admin.html">Home</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-edit"></i> Report Generation
@@ -225,20 +128,19 @@
                         <sf:form role="form" modelAttribute="team_name">
 
                             <div class="form-group">
+                            
                                 <label>Team Name</label>
                                 <sf:input path="team_name" name="team_name" class="form-control" placeholder="Team Name"/>
-                              
+                              <br>
                             </div>
-                            <input type="submit" class="btn btn-default">Submit Button</button>
+                            <input type="submit" class="btn btn-default"></button>
+                            <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br><br>
+     
+                            
                         </sf:form>
 
                     </div>
-                    <div class="col-lg-6">
-                        <h1>Report here</h1>
-
-                        <form role="form">
-                        </form>
-                    </div>
+                    
                 </div>
                 <!-- /.row -->
 
@@ -251,11 +153,16 @@
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="<c:url value="jsteam/jquery.js"/>"></script>
+   <script src="<c:url value="jsteam/jquery.js"/>"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="<c:url value="jsteam/bootstrap.min.js"/>"></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="<c:url value="jsteam/bootstrap.min.js"/>"></script>
+
+	<!-- Morris Charts JavaScript -->
+	<script src="js/plugins/morris/raphael.min.js"></script>
+	<script src="js/plugins/morris/morris.min.js"></script>
+	<script src="js/plugins/morris/morris-data.js"></script>
+
 
 
 
@@ -270,6 +177,7 @@ var d = [{"label":"design", "value":"${team_name.getDesign()}"},
 init(d);
 X();
 </script>
+
 </body>
 
 </html>

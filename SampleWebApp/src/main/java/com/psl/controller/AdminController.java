@@ -141,7 +141,7 @@ public class AdminController {
 
 			httpSession.setAttribute("userName", list.get(0).getName());
 
-			return "AdminMain";
+			return "upload";
 		}
 		session.flush();
 
