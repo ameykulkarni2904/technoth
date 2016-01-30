@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 28, 2016 11:41:33 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.psl.model.Grade" table="grades">
+        <id  name="team_name" >
+            <column name="team_name" />
+            <generator class="assigned" />
+        </id>
+        
+         <property name="milestone_id" >
+            <column name="milestone_id" />
+        </property>
+        <property name="grades" >
+            <column name="grades" />
+        </property>
+        <property name="feedback" >
+            <column name="feedback" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,40 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
-
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<html lang="en">
-
+<html>
 <head>
+
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
+<meta name="author" content="">
 
-<title>Team home Page</title>
+<title>SB Admin - Bootstrap Admin Template</title>
 
- <title>Team home Page</title>
- <!-- Bootstrap Core CSS -->
-      <link rel="stylesheet" href="<c:url value="/resources/cssteam/bootstrap.min.css" />">
-		
-    <!-- Custom CSS -->
-    <link href="<c:url value="/resources/cssteam/sb-admin.css"/>" rel="stylesheet">
+<!-- Bootstrap Core CSS -->
+<link rel="stylesheet"
+	href="<c:url value="/resources/cssteam/bootstrap.min.css" />">
 
-   
-    <!-- Custom Fonts -->
-    <link href="<c:url value="/resources/font-awesometeam/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css">
+<!-- Custom CSS -->
+<link href="<c:url value="/resources/cssteam/sb-admin.css"/>"
+	rel="stylesheet">
 
-   
+
+<!-- Custom Fonts -->
+<link
+	href="<c:url value="/resources/font-awesometeam/css/font-awesome.min.css"/>"
+	rel="stylesheet" type="text/css">
+
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 </head>
-
 <body>
-
 	<div id="wrapper">
 
 		<!-- Navigation -->
@@ -47,7 +53,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="index.html">Team</a>
+			<a class="navbar-brand" href="index.html">SB Admin</a>
 		</div>
 		<!-- Top Menu Items -->
 		<ul class="nav navbar-right top-nav">
@@ -62,7 +68,7 @@
 								</span>
 								<div class="media-body">
 									<h5 class="media-heading">
-										<strong>Teamname</strong>
+										<strong>John Smith</strong>
 									</h5>
 									<p class="small text-muted">
 										<i class="fa fa-clock-o"></i> Yesterday at 4:32 PM
@@ -78,7 +84,7 @@
 								</span>
 								<div class="media-body">
 									<h5 class="media-heading">
-										<strong>Teamname</strong>
+										<strong>John Smith</strong>
 									</h5>
 									<p class="small text-muted">
 										<i class="fa fa-clock-o"></i> Yesterday at 4:32 PM
@@ -94,7 +100,7 @@
 								</span>
 								<div class="media-body">
 									<h5 class="media-heading">
-										<strong>Teamname</strong>
+										<strong>John Smith</strong>
 									</h5>
 									<p class="small text-muted">
 										<i class="fa fa-clock-o"></i> Yesterday at 4:32 PM
@@ -126,7 +132,7 @@
 					<li><a href="#">View All</a></li>
 				</ul></li>
 			<li class="dropdown"><a href="#" class="dropdown-toggle"
-				data-toggle="dropdown"><i class="fa fa-user"></i> Team name <b
+				data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b
 					class="caret"></b></a>
 				<ul class="dropdown-menu">
 					<li><a href="#"><i class="fa fa-fw fa-user"></i> Profile</a></li>
@@ -135,24 +141,43 @@
 					<li><a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
 					</li>
 					<li class="divider"></li>
-					<li><a href=<c:url value="/logout"/>"><i class="fa fa-fw fa-power-off"></i> Log
+					<li><a href="#"><i class="fa fa-fw fa-power-off"></i> Log
 							Out</a></li>
 				</ul></li>
 		</ul>
 		<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav side-nav">
-				<li class="active"><a href="index.html"><i
-						class="fa fa-fw fa-dashboard"></i> Home</a></li>
-
-				<li><a href="tables.html"><i class="fa fa-fw fa-table"></i>
-						Schedule</a></li>
-				<li><a href="forms.html"><i class="fa fa-fw fa-edit"></i>
-						Problem Statment</a></li>
+				<li class="active"><a href="<c:url value="uploadFileXls"/>"><i
+						class="fa fa-fw fa-edit"></i>Upload Participant List</a></li>
 
 
-				<li><a href="blank-page.html"><i class="fa fa-fw fa-file"></i>
-						forum</a></li>
+				<li><a href="<c:url value="claimTeam"/>"><i
+						class="fa fa-fw fa-edit"></i> Claim Teams</a></li>
+
+				<li><a href="<c:url value="schedule1/add"/>"><i
+						class="fa fa-fw fa-edit"></i>Schedule Generation</a></li>
+
+				<li><a href="<c:url value="displayproblem"/>"><i
+						class="fa fa-fw fa-edit"></i>Problem Statement Status</a></li>
+
+				<li><a href="<c:url value="/uploadFileXls"/>"><i
+						class="fa fa-fw fa-edit"></i>Upload Participant List</a></li>
+
+				<li><a href="<c:url value="displayreport"/>"><i
+						class="fa fa-fw fa-edit"></i>Report Generation</a></li>
+
+				<li><a href="<c:url value="sendEmail"/>"><i
+						class="fa fa-fw fa-edit"></i>Send Emails</a></li>
+
+				<%-- <li>
+					<a href="<c:url value="/uploadFileXls"/>"><i class="fa fa-fw fa-edit"></i>Upload Participant List</a>
+                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i>Rss Feeds</a>
+                    </li> --%>
+
+
+				<li><a href="<c:url value="grade"/>"><i
+						class="fa fa-fw fa-edit"></i>Feedback</a></li>
 
 			</ul>
 		</div>
@@ -165,62 +190,53 @@
 				<!-- Page Heading -->
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Submit Problem Statement here</h1>
+						<h1 class="page-header">Software Requirement</h1>
 						<ol class="breadcrumb">
 							<li><i class="fa fa-dashboard"></i> <a href="index.html">Dashboard</a>
 							</li>
-							<li class="active"><i class="fa fa-edit"></i> Submit Problem
-								Statement:</li>
+							<li class="active"><i class="fa fa-wrench"></i>Software
+								Requirements</li>
 						</ol>
 					</div>
 				</div>
 				<!-- /.row -->
-
 				<div class="row">
 					<div class="col-lg-6">
+						<%--  <sf:form role="form" modelAttribute="soft_req">
 
-						<sf:form modelAttribute="problemstatement" method="POST"
-							role="form">
+                            <div class="form-group">
+                                <label>Team Name</label>
+                                <sf:input path="team_name" name="team_name" class="form-control" placeholder="Team Name"/>
+                              
+                            </div> 
+                            <input type="submit" class="btn btn-default">Submit Button</button>
+                        </sf:form> --%>
+						<table>
+							<!-- here should go some titles... -->
+							<tr>
+								<th>Software Name</th>
+								<th>Version</th>
+								<th>URL</th>
+								<th>Team Name</th>
 
-							<div class="form-group">
-								<label>Team name:</label>
-								<sf:input path="team_name" class="form-control" type="text" />
-
-							</div>
-
-							<div class="form-group">
-								<label>First Problem Statement:</label>
-
-								<sf:input path="statement" class="form-control" type="text" />
-
-
-								<p class="help-block">Enter problem statement here.</p>
-							</div>
-
-							<br>
-							<div class="form-group">
-								<label>Description :</label>
-								<sf:input path="description" class="form-control" type="text" />
-								<p class="help-block">Enter description here.</p>
-							</div>
-
-							<br>
-							<div class="form-group">
-								<label>upload photo</label> <input type="file">
-							</div>
-
-							<br>
-
-							<button type="submit" class="btn btn-default">Submit
-								Button</button>
-							<button type="reset" class="btn btn-default">Reset
-								Button</button>
-
-						</sf:form>
-
+							</tr>
+							<c:forEach items="${list}" var="sr">
+								<tr>
+									<td>
+										
+											<c:out value="${sr.getName()}" />
+								</td>
+									<td><c:out value="${sr.getVersion()}" /></td>
+									<td><c:out value="${sr.getUrl()}" /></td>
+									<td><c:out value="${sr.getTeam_name()}" /></td>
+									
+								</tr>
+							</c:forEach>
+						</table>
 					</div>
-
 				</div>
+
+
 				<!-- /.row -->
 
 			</div>
@@ -231,15 +247,12 @@
 
 	</div>
 	<!-- /#wrapper -->
+	<!-- jQuery -->
+	<script src="<c:url value="jsteam/jquery.js"/>"></script>
 
-	 <!-- jQuery -->
-    <script src="<c:url value="jsteam/jquery.js"/>"></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="<c:url value="jsteam/bootstrap.min.js"/>"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="<c:url value="jsteam/bootstrap.min.js"/>"></script>
-
-	
 
 </body>
-
 </html>

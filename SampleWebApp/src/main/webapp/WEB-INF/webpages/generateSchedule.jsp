@@ -3,7 +3,8 @@
     <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
     <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+   
+    
 <html lang="en">
 
 <head>
@@ -17,13 +18,17 @@
     <title>SB Admin - Bootstrap Admin Template</title>
 
     <!-- Bootstrap Core CSS -->
-    
-	<link rel="stylesheet" href="<c:url value="resources/css/bootstrap.min.css"/>">
+    <!-- Bootstrap Core CSS -->
+      <link rel="stylesheet" href="<c:url value="/resources/cssteam/bootstrap.min.css" />">
+		
     <!-- Custom CSS -->
-    <link href="css/sb-admin.css" rel="stylesheet">
-	<link rel="stylesheet" href="<c:url value="resources/css/sb-admin.css"/>">
+    <link href="<c:url value="/resources/cssteam/sb-admin.css"/>" rel="stylesheet">
+
+   
     <!-- Custom Fonts -->
-    <link rel="stylesheet" href="<c:url value="resources/css/font-awesome/css/font-awesome.min.css"/>">
+    <link href="<c:url value="/resources/font-awesometeam/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css">
+
+   
     
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -156,35 +161,52 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="uploadParticipantList.html"><i class="fa fa-fw fa-dashboard"></i>Upload Participant List</a>
+                    
+                    <a href="<c:url value="uploadFileXls"/>"><i class="fa fa-fw fa-edit"></i>Upload Participant List</a>
+                    
+                        
                     </li>
+                   
+                    
                     <li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i>Team Details</a>
+                    <a href="<c:url value="claimTeam"/>"><i class="fa fa-fw fa-edit"></i> Claim Teams</a>
+                        
                     </li>
+                    
                     <li>
-                        <a href="claimTeam.html"><i class="fa fa-fw fa-table"></i>Claim Teams</a>
+                    <a href="<c:url value="schedule1/add"/>"><i class="fa fa-fw fa-edit"></i>Schedule Generation</a>
+                        
                     </li>
+                    
                     <li>
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i>Schedule Generation</a>
+                    <a href="<c:url value="displayproblem"/>"><i class="fa fa-fw fa-edit"></i>Problem Statement Status</a>
+                        
                     </li>
+                    
                     <li>
-                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i>Problem Statement Status</a>
+                    <a href="<c:url value="/uploadFileXls"/>"><i class="fa fa-fw fa-edit"></i>Upload Participant List</a>
+                        
                     </li>
-                    <li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i>Software Requirement Status</a>
-                    </li>
+                    
 					<li>
-                        <a href="displayReport.html"><i class="fa fa-fw fa-wrench"></i>Report Generation</a>
+					<a href="<c:url value="displayreport"/>"><i class="fa fa-fw fa-edit"></i>Report Generation</a>
+                       
                     </li>
+                    
 					<li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i>Send Emails</a>
+					<a href="<c:url value="sendEmail"/>"><i class="fa fa-fw fa-edit"></i>Send Emails</a>
+                        
                     </li>
 					
-					<li>
+					<%-- <li>
+					<a href="<c:url value="/uploadFileXls"/>"><i class="fa fa-fw fa-edit"></i>Upload Participant List</a>
                         <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i>Rss Feeds</a>
-                    </li>
+                    </li> --%>
+                    
+                    
 					<li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i>Feedback</a>
+					<a href="<c:url value="grade"/>"><i class="fa fa-fw fa-edit"></i>Feedback</a>
+                       
                     </li>
                     
                 </ul>
@@ -217,7 +239,7 @@
                 <div class="row">
                     <div class="col-lg-8">
 
-                        <form role="form">
+                        <sf:form role="form" modelAttribute="schedule" action="add">
 						<div class="row">
 							<div class="col-lg-4">
                             <div class="form-group">
@@ -226,7 +248,7 @@
 								</div>
 							<div class="col-lg-4">
 								<div class="form-group">
-                                <input class="form-control" type="date" id="start_date" >
+                                <sf:input class="form-control" type="date" id="start_date" path="startDate"/>
 								</div>
 								</div>
                                 
@@ -240,69 +262,42 @@
 								</div>
 							<div class="col-lg-4">
 								<div class="form-group">
-                                <input class="form-control" type="date" id="end_date" >
+                                <sf:input class="form-control" type="date" id="end_date" path="endDate" />
 								</div>
 								</div>
-                                
+                                <input type="submit" class="btn btn-default" value="submit">
                         </div>
+                        
+                         </sf:form>
+							<sf:form action="milestone" modelAttribute="milestone1">
+							 <div class="row">
+							 <div class="col-lg-3">	
+								<div class="form-group"> 
+								<%=session.getAttribute("count") %>
+								 </div>
+								 </div>
+								<div class="col-lg-3">	
+								<div class="form-group"> 
+									<sf:input type="text" class="form-control"  placeholder="Milestone Name"  path="milestoneName" />
+								 </div>
+								</div> 
+							 	<div class="col-lg-3">	
+								<div class="form-group"> 
+									<sf:input type="text" class="form-control"  placeholder="No of days" path="noOfDays"/>
+							 	</div>
+								</div> 
+								 <div class="col-lg-2">	
+								<div class="form-group"> 
+									<input type="submit" class="btn btn-default" >
+						 		</div>
+								</div>
+							</div> 
+							</sf:form>
 							
-							<div class="row">
-								<div class="col-lg-3">	
-								<div class="form-group">
-									<input class="form-control" placeholder="Milestone Name">
-								</div>
-								</div>
-								<div class="col-lg-3">	
-								<div class="form-group">
-									<input class="form-control" placeholder="No of days">
-								</div>
-								</div>
-								<div class="col-lg-2">	
-								<div class="form-group">
-									<button type="submit" class="btn btn-default">Submit Button</button>
-								</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-3">	
-								<div class="form-group">
-									<input class="form-control" placeholder="Milestone Name">
-								</div>
-								</div>
-								<div class="col-lg-3">	
-								<div class="form-group">
-									<input class="form-control" placeholder="No of days">
-								</div>
-								</div>
-								<div class="col-lg-2">	
-								<div class="form-group">
-									<button type="submit" class="btn btn-default">Submit Button</button>
-								</div>
-								</div>
-							</div>
-							
-							<div class="row">
-								<div class="col-lg-3">	
-								<div class="form-group">
-									<input class="form-control" placeholder="Milestone Name">
-								</div>
-								</div>
-								<div class="col-lg-3">	
-								<div class="form-group">
-									<input class="form-control" placeholder="No of days">
-								</div>
-								</div>
-								<div class="col-lg-2">	
-								<div class="form-group">
-									<button type="submit" class="btn btn-default">Submit Button</button>
-								</div>
-								</div>
-							</div>
-
-                            <button type="submit" class="btn btn-default">Submit Button</button>
+                            
                             <button type="reset" class="btn btn-default">Reset Button</button>
 
-                        </form>
+                       
 
                     </div>
                     
@@ -320,14 +315,11 @@
 
     </div>
     <!-- /#wrapper -->
+ <!-- jQuery -->
+    <script src="<c:url value="jsteam/jquery.js"/>"></script>
 
-    <!-- jQuery -->
-    
-    <script src="<c:url value="resources/js/jquery.js"/>"></script>
-	
     <!-- Bootstrap Core JavaScript -->
-    
-  <script src="<c:url value="resources/js/bootstrap.min.js"/>"></script>
+    <script src="<c:url value="jsteam/bootstrap.min.js"/>"></script>
 
 </body>
 

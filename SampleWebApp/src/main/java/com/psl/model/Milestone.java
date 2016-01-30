@@ -18,6 +18,13 @@ public class Milestone {
 	public void setMilestoneName(String milestoneName) {
 		this.milestoneName = milestoneName;
 	}
+	@Override
+	public String toString() {
+		return "Milestone [milestoneId=" + milestoneId + ", milestoneName="
+				+ milestoneName + ", startDateTime=" + startDateTime
+				+ ", endDateTime=" + endDateTime + ", noOfDays=" + noOfDays
+				+ "]";
+	}
 	public int getMilestoneId() {
 		return milestoneId;
 	}

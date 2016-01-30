@@ -32,7 +32,7 @@ public class FileUploadController {
     @RequestMapping(value={"/uploadFileXls"}, method=RequestMethod.GET)
     public String uploadPage(){
        
-        return "uploadParticipantList";       
+        return "upload";       
     }
    
     @RequestMapping(value = "/uploadFileXls", method = RequestMethod.POST)
@@ -77,6 +77,7 @@ public class FileUploadController {
             		
             		session.close();
 				}
+               
                 
                 
                /* logger.info("Server File Location="

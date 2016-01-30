@@ -4,6 +4,11 @@ import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -17,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.psl.dao.HibernateUtil;
 import com.psl.model.Milestone;
 import com.psl.model.Schedule;
+import com.psl.model.SoftReq;
 @Controller
 @RequestMapping(value="/schedule1")
 public class ScheduleController {
@@ -24,15 +30,28 @@ public class ScheduleController {
 	//static int count =0; 
 	@RequestMapping(value="/add",method=RequestMethod.GET)
 	public String generateSchedule(Model model){
-		Milestone milestone=new Milestone();
+		//Milestone milestone=new Milestone();
 		
 		Schedule sc=new Schedule();
 		//Milestone milestone=new Milestone();
 		model.addAttribute("schedule",sc);
-		model.addAttribute("milestone", milestone);
+		//model.addAttribute("milestone", milestone);
+		Milestone milestone1=new Milestone();
+		Milestone milestone2=new Milestone();
+		Milestone milestone3=new Milestone();
+		Milestone milestone4=new Milestone();
+		//Schedule sc=new Schedule();
+		//Milestone milestone=new Milestone();
+		
+	
+		
+		model.addAttribute("milestone1", milestone1);
+		model.addAttribute("milestone2", milestone2);
+		model.addAttribute("milestone3", milestone3);
+		model.addAttribute("milestone4", milestone4);
 		
 		
-		return "schedule";
+		return "generateSchedule";
 	}
 	
 	
@@ -40,6 +59,19 @@ public class ScheduleController {
 	@RequestMapping(value="/add",method=RequestMethod.POST)
 	public String generateSchedule(Model model,Schedule schedule){
 //		milestonescount=schedule.getNoOfMilestones();
+		Milestone milestone1=new Milestone();
+		Milestone milestone2=new Milestone();
+		Milestone milestone3=new Milestone();
+		Milestone milestone4=new Milestone();
+		Schedule sc=new Schedule();
+		//Milestone milestone=new Milestone();
+		
+		model.addAttribute("milestone1", milestone1);
+		model.addAttribute("milestone2", milestone2);
+		model.addAttribute("milestone3", milestone3);
+		model.addAttribute("milestone4", milestone4);
+		
+		
 		schedule.setNoOfMilestones(4);
 		System.out.println("schedule from jsp: " + schedule);
 		ScheduleController scheduleController=new ScheduleController();
@@ -67,7 +99,7 @@ public class ScheduleController {
 	//	session.flush();
 		transaction.commit();
 		session.close();
-		return "schedule";
+		return "generateSchedule";
 		
 	}
 	
@@ -75,6 +107,7 @@ public class ScheduleController {
 	public Milestone createFirstMilestone(String milestoneName,int noOfDays){
 		SessionFactory sessionFactory=HibernateUtil.getFactory();
 		Session session=sessionFactory.openSession();
+		System.out.println("no_of days "+noOfDays);
 		Transaction transaction= session.beginTransaction();
 		System.out.println("in createFirst milestone "+milestoneName);
 		System.out.println("in createFirst milestone noOfdays"+noOfDays);
@@ -136,13 +169,16 @@ public class ScheduleController {
 		Milestone milestone4=new Milestone();
 		Schedule sc=new Schedule();
 		//Milestone milestone=new Milestone();
+		int count = 0;
 		
-		model.addAttribute("milestones", milestone1);
+
+		
+		model.addAttribute("milestone1", milestone1);
 		model.addAttribute("milestone2", milestone2);
 		model.addAttribute("milestone3", milestone3);
 		model.addAttribute("milestone4", milestone4);
-		
-		return "milestone";
+		model.addAttribute("schedule",sc);
+		return "generateSchedule";
 	}
 	
 	
@@ -156,18 +192,24 @@ public class ScheduleController {
 		Schedule sc=new Schedule();
 		//Milestone milestone=new Milestone();
 		
-		model.addAttribute("milestones", milestone1);
+		model.addAttribute("milestone1", milestone1);
 		model.addAttribute("milestone2", milestone2);
 		model.addAttribute("milestone3", milestone3);
 		model.addAttribute("milestone4", milestone4);
+		model.addAttribute("schedule",sc);
+		
+		SessionFactory sessionFactory=HibernateUtil.getFactory();
+		Session session=sessionFactory.openSession();
+		Transaction transaction= session.beginTransaction();
+		Query q=session.createQuery("from Milestone");
 		
 		
-		System.out.println("in milestone post");
+		System.out.println("in milestone post no of days "+milestone.getNoOfDays());
 		if(checkIfFirstMilestone()){
 //			milestone.setMilestoneId(count);
 			Schedule schedule=getSchedule();
 			createFirstMilestone(milestone.getMilestoneName(), milestone.getNoOfDays());
-			return "milestone";
+			return "generateSchedule";
 		}
 		Milestone previousMilestone=getPreviousMilestone();
 //		milestone.setMilestoneId(count);
@@ -196,7 +238,11 @@ public class ScheduleController {
 		session.close();
 		*/
 //		count++;
-		return "milestone";
+		if(q.list().size()==4){
+			return "milestoneDone";
+		}
+		
+		return "generateSchedule";
 	}
 
 
@@ -326,7 +372,55 @@ public class ScheduleController {
 	
 	
 	
+	/*@RequestMapping(value="/displayschedule")
+	public String loginposts1(Model model,Schedule schedule){
+		//String teamName=new String();
+		//model.addAttribute("team_name", teamName);
+		///DailyReport rep1=new DailyReport();
+		
+		SessionFactory sessionFactory=HibernateUtil.getFactory();
+		Session session=sessionFactory.openSession();
+		Transaction transaction= session.beginTransaction();
+		Query q=session.createQuery("from Milestone");
+		//session.createCriteria(arg0, arg1)
+		List<Schedule> dl=q.list();
+		System.out.println("##################");
+		model.addAttribute("list",dl);
+		System.out.println("schedule"+dl);
+		//System.out.println("soft requirements"+dl);
+		session.flush();
+		
+		transaction.commit();
+		
+		session.close();
+		return "displayschedule";
+	}*/
 	
+	
+	
+	@RequestMapping(value="/displayschedule")
+	public String loginposts1(Model model,Milestone milestone){
+		//String teamName=new String();
+		//model.addAttribute("team_name", teamName);
+		///DailyReport rep1=new DailyReport();
+		
+		SessionFactory sessionFactory=HibernateUtil.getFactory();
+		Session session=sessionFactory.openSession();
+		Transaction transaction= session.beginTransaction();
+		Query q=session.createQuery("from Milestone");
+		//session.createCriteria(arg0, arg1)
+		List<Milestone> dl=q.list();
+		System.out.println("##################");
+		model.addAttribute("list",dl);
+		System.out.println("schedule"+dl);
+		//System.out.println("soft requirements"+dl);
+		session.flush();
+		
+		transaction.commit();
+		
+		session.close();
+		return "displayschedule";
+	}
 	
 	
 	

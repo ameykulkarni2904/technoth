@@ -6,12 +6,21 @@ import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
 @Entity
-@Table(name="problemstatement")
+
 public class ProblemStatement {
 
 	private String team_name;
 	private String statement;
 	private String description;
+	private Status status;
+	
+	public Status getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 
 	public ProblemStatement(){
 		
@@ -48,8 +57,8 @@ public class ProblemStatement {
 	@Override
 	public String toString() {
 		return "ProblemStatement [team_name=" + team_name + ", statement="
-				+ statement + ", description=" + description 
-				+"]";
+				+ statement + ", description=" + description + ", status="
+				+ status + "]";
 	}
 	
 	

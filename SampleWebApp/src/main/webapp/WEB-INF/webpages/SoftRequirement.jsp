@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+     
+    <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html lang="en">
 
 <head>
@@ -9,23 +15,22 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>Team home Page</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
+   <!-- Bootstrap Core CSS -->
+      <link rel="stylesheet" href="<c:url value="/resources/cssteam/bootstrap.min.css" />">
+		
     <!-- Custom CSS -->
-    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="<c:url value="/resources/cssteam/sb-admin.css"/>" rel="stylesheet">
 
+   
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="<c:url value="/resources/font-awesometeam/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+   
+
+   
 
 </head>
 
@@ -43,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin</a>
+                <a class="navbar-brand" href="index.html">Team</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -57,7 +62,7 @@
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        <h5 class="media-heading"><strong>Teamname</strong>
                                         </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -72,7 +77,7 @@
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        <h5 class="media-heading"><strong>Teamname</strong>
                                         </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -87,7 +92,7 @@
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
                                     <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        <h5 class="media-heading"><strong>Teamname</strong>
                                         </h5>
                                         <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur...</p>
@@ -128,7 +133,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Team name <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -150,37 +155,25 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="uploadParticipantList.html"><i class="fa fa-fw fa-dashboard"></i>Upload Participant List</a>
+                        <a href="indexteam.html"><i class="fa fa-fw fa-dashboard"></i> Home</a>
+                    </li>
+            
+                    <li>
+                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> Schedule</a>
                     </li>
                     <li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i>Team Details</a>
+                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Problem Statment</a>
                     </li>
+                   <li>
+                        <a href="formsoftreq.html"><i class="fa fa-fw fa-edit"></i> Software Requirements</a>
+                    </li>
+                 
                     <li>
-                        <a href="claimTeam.html"><i class="fa fa-fw fa-table"></i>Claim Teams</a>
+                        <a href="forum.html"><i class="fa fa-fw fa-file"></i> Forum</a>
                     </li>
-                    <li>
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i>Schedule Generation</a>
+                   <li>
+                        <a href="feedback.html"><i class="fa fa-fw fa-file"></i> Feedback</a>
                     </li>
-                    <li>
-                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i>Problem Statement Status</a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i>Software Requirement Status</a>
-                    </li>
-					<li>
-                        <a href="displayReport.html"><i class="fa fa-fw fa-wrench"></i>Report Generation</a>
-                    </li>
-					<li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i>Send Emails</a>
-                    </li>
-					
-					<li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i>Rss Feeds</a>
-                    </li>
-					<li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i>Feedback</a>
-                    </li>
-                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -194,14 +187,14 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Generate Schedule
+                           Submit Software Requirement here
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="admin.html">Dashboard</a>
+                                <i class="fa fa-dashboard"></i>  <a href="index.html">Home</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-edit"></i>Generate Schedule
+                                <i class="fa fa-edit"></i> Software Requirement:
                             </li>
                         </ol>
                     </div>
@@ -209,100 +202,53 @@
                 <!-- /.row -->
 
                 <div class="row">
-                    <div class="col-lg-8">
-
-                        <form role="form">
-						<div class="row">
-							<div class="col-lg-4">
-                            <div class="form-group">
-                                <label>Start Date</label>
-							</div>
-								</div>
-							<div class="col-lg-4">
-								<div class="form-group">
-                                <input class="form-control" type="date" id="start_date" >
-								</div>
-								</div>
-                                
-                        </div>
-						
-						<div class="row">
-							<div class="col-lg-4">
-                            <div class="form-group">
-                                <label>End Date</label>
-							</div>
-								</div>
-							<div class="col-lg-4">
-								<div class="form-group">
-                                <input class="form-control" type="date" id="end_date" >
-								</div>
-								</div>
-                                
-                        </div>
+                    <div class="col-lg-6">
+					
+					 <sf:form modelAttribute="softreq" method="POST" role="form">
 							
-							<div class="row">
-								<div class="col-lg-3">	
-								<div class="form-group">
-									<input class="form-control" placeholder="Milestone Name">
-								</div>
-								</div>
-								<div class="col-lg-3">	
-								<div class="form-group">
-									<input class="form-control" placeholder="No of days">
-								</div>
-								</div>
-								<div class="col-lg-2">	
-								<div class="form-group">
-									<button type="submit" class="btn btn-default">Submit Button</button>
-								</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-3">	
-								<div class="form-group">
-									<input class="form-control" placeholder="Milestone Name">
-								</div>
-								</div>
-								<div class="col-lg-3">	
-								<div class="form-group">
-									<input class="form-control" placeholder="No of days">
-								</div>
-								</div>
-								<div class="col-lg-2">	
-								<div class="form-group">
-									<button type="submit" class="btn btn-default">Submit Button</button>
-								</div>
-								</div>
-							</div>
+					
 							
-							<div class="row">
-								<div class="col-lg-3">	
-								<div class="form-group">
-									<input class="form-control" placeholder="Milestone Name">
-								</div>
-								</div>
-								<div class="col-lg-3">	
-								<div class="form-group">
-									<input class="form-control" placeholder="No of days">
-								</div>
-								</div>
-								<div class="col-lg-2">	
-								<div class="form-group">
-									<button type="submit" class="btn btn-default">Submit Button</button>
-								</div>
-								</div>
-							</div>
+							
+							<div class="form-group">
+                                <label>Software Requirement ID:</label>
+                                <sf:input path="softreq_id" class="form-control" type="text"/>
+                              
+                                
+                            </div>
 
+                            <div class="form-group">
+                                <label>Software Name:</label>
+                                <sf:input path="name" class="form-control" type="text"/>
+                              
+                                
+                            </div>
+
+                        
+							<div class="form-group">
+                                <label>Version  :</label>
+                                  <sf:input path="version" class="form-control" type="text"/>
+                              
+                            </div>
+                         
+							<div class="form-group">
+                                <label>URL  :</label>
+                                 <sf:input path="url" class="form-control" type="text"/>
+                              
+                            </div>
+							<div class="form-group">
+                                <label>Team Name  :</label>
+                                 <sf:input path="team_name" class="form-control" type="text"/>
+                              
+                            </div>
+                         
+                           
                             <button type="submit" class="btn btn-default">Submit Button</button>
                             <button type="reset" class="btn btn-default">Reset Button</button>
-
-                        </form>
+							
+                         </sf:form>
 
                     </div>
                     
-
-                     
-                   
                 </div>
                 <!-- /.row -->
 
@@ -316,10 +262,12 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="<c:url value="jsteam/jquery.js"/>"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="<c:url value="jsteam/bootstrap.min.js"/>"></script>
+
+    
 
 </body>
 

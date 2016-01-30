@@ -21,7 +21,17 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     -->
+ <!-- Bootstrap Core CSS -->
+      <link rel="stylesheet" href="<c:url value="/resources/cssteam/bootstrap.min.css" />">
+		
+    <!-- Custom CSS -->
+    <link href="<c:url value="/resources/cssteam/sb-admin.css"/>" rel="stylesheet">
 
+   
+    <!-- Custom Fonts -->
+    <link href="<c:url value="/resources/font-awesometeam/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css">
+
+   
 </head>
 
 <body>
@@ -249,6 +259,12 @@
     <!-- Bootstrap Core JavaScript -->
 <!--     <script src="js/bootstrap.min.js"></script>
  -->
+  <!-- jQuery -->
+    <script src="<c:url value="jsteam/jquery.js"/>"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="<c:url value="jsteam/bootstrap.min.js"/>"></script>
+ 
 </body>
 
 </html>

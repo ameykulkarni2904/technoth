@@ -17,6 +17,7 @@
         <property name="url">
         	<column name="url"></column>
         </property>
+
        
     </class>
 </hibernate-mapping>

@@ -2,21 +2,14 @@
     pageEncoding="ISO-8859-1"%>
      <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
       <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
-
+<html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
-
-  <!-- Bootstrap Core CSS -->
+<!-- Bootstrap Core CSS -->
       <link rel="stylesheet" href="<c:url value="/resources/cssteam/bootstrap.min.css" />">
 		
     <!-- Custom CSS -->
@@ -28,21 +21,9 @@
 
    
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-<!-- D3 file included here -->
-<script src="<c:url value="/resources/d3/d3.v3.min.js"/>"></script>
-
-
 </head>
-
 <body>
-
-    <div id="wrapper">
+<div id="wrapper">
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -54,7 +35,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="admin.html">SB Admin</a>
+                <a class="navbar-brand" href="index.html">SB Admin</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -158,38 +139,55 @@
                 </li>
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-           <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="uploadParticipantList.html"><i class="fa fa-fw fa-dashboard"></i>Upload Participant List</a>
+                    
+                    <a href="<c:url value="uploadFileXls"/>"><i class="fa fa-fw fa-edit"></i>Upload Participant List</a>
+                    
+                        
                     </li>
+                   
+                    
                     <li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i>Team Details</a>
+                    <a href="<c:url value="claimTeam"/>"><i class="fa fa-fw fa-edit"></i> Claim Teams</a>
+                        
                     </li>
+                    
                     <li>
-                        <a href="claimTeam.html"><i class="fa fa-fw fa-table"></i> Claim Teams</a>
+                    <a href="<c:url value="schedule1/add"/>"><i class="fa fa-fw fa-edit"></i>Schedule Generation</a>
+                        
                     </li>
+                    
                     <li>
-                        <a href="generateSchedule.html"><i class="fa fa-fw fa-edit"></i>Schedule Generation</a>
+                    <a href="<c:url value="displayproblem"/>"><i class="fa fa-fw fa-edit"></i>Problem Statement Status</a>
+                        
                     </li>
+                    
                     <li>
-                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i>Problem Statement Status</a>
+                    <a href="<c:url value="/uploadFileXls"/>"><i class="fa fa-fw fa-edit"></i>Upload Participant List</a>
+                        
                     </li>
-                    <li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i>Software Requirement Status</a>
-                    </li>
+                    
 					<li>
-                        <a href="displayReport.html"><i class="fa fa-fw fa-wrench"></i>Report Generation</a>
+					<a href="<c:url value="displayreport"/>"><i class="fa fa-fw fa-edit"></i>Report Generation</a>
+                       
                     </li>
+                    
 					<li>
-                        <a href="sendEmail.html"><i class="fa fa-fw fa-wrench"></i>Send Emails</a>
+					<a href="<c:url value="sendEmail"/>"><i class="fa fa-fw fa-edit"></i>Send Emails</a>
+                        
                     </li>
 					
-					<li>
+					<%-- <li>
+					<a href="<c:url value="/uploadFileXls"/>"><i class="fa fa-fw fa-edit"></i>Upload Participant List</a>
                         <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i>Rss Feeds</a>
-                    </li>
+                    </li> --%>
+                    
+                    
 					<li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i>Feedback</a>
+					<a href="<c:url value="grade"/>"><i class="fa fa-fw fa-edit"></i>Feedback</a>
+                       
                     </li>
                     
                 </ul>
@@ -205,40 +203,75 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Generate Report
+                           Team Feedback 
                         </h1>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="admin.html">Dashboard</a>
+                                <i class="fa fa-dashboard"></i>  <a href="index.html">Home</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-edit"></i> Report Generation
+                                <i class="fa fa-edit"></i> Team Feedback :
                             </li>
+							<br><br>
                         </ol>
                     </div>
                 </div>
                 <!-- /.row -->
 
                 <div class="row">
-                    <div class="col-lg-6">
-
-                        <sf:form role="form" modelAttribute="team_name">
-
-                            <div class="form-group">
-                                <label>Team Name</label>
-                                <sf:input path="team_name" name="team_name" class="form-control" placeholder="Team Name"/>
-                              
+                    <div >
+						<form name="frm" action="grade" class="Grade">
+							
+							<div >
+                                <label>Team Name :</label>
+                                <input type="text"  id="team_name"/>
                             </div>
-                            <input type="submit" class="btn btn-default">Submit Button</button>
-                        </sf:form>
-
-                    </div>
-                    <div class="col-lg-6">
-                        <h1>Report here</h1>
-
-                        <form role="form">
+							
+							 <div >
+						
+                               <SELECT id="milestone_id" name="milestone_id" >
+									<option value="0" >Milestone Name</option>
+									<option value="1" >design</option>
+									<option value="2" >documentation</option>
+									<option value="3" >abc</option>
+									<option value="4" >xyz</option>
+									
+								</SELECT>
+                            </div> 
+                            
+                            
+                            
+                        
+							<br>
+							<div >
+                                <label>Grade :</label>
+                                <input type="text" id="grades"/>
+                            </div>
+							<div >
+                                <label>Feedback:</label>
+                                <input type="textarea"  rows="3" id="feedback"/>
+								
+                            </div>
+							
+                        
+                           <br><br><br><br><br><br>
+                            
+                          <input type="submit" value="Claim"/>
+                            <input type="reset"  value="Reset"/> 
+							
+							<!--  <button type="submit" class="btn btn-default">Submit </button>
+                            <button type="reset" class="btn btn-default">Reset </button> -->
+                            
+                            
+							<br><br><br><br><br><br>
+                            
+							
                         </form>
+						
+						 
+						
                     </div>
+                    
                 </div>
                 <!-- /.row -->
 
@@ -258,18 +291,5 @@
     <script src="<c:url value="jsteam/bootstrap.min.js"/>"></script>
 
 
-
-<script src="<c:url value="/resources/db.js"/>"></script>
-
-<script>
-
-var d = [{"label":"design", "value":"${team_name.getDesign()}"}, 
-        {"label":"database", "value":"${ team_name.getDatabase()}"}, 
-        {"label":"coding", "value":"${team_name.getCoding()}"}];
-        
-init(d);
-X();
-</script>
 </body>
-
 </html>

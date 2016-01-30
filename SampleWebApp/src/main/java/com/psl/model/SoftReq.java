@@ -12,6 +12,13 @@ public class SoftReq {
 	private String version;
 	private String url;
 	private String name;
+	private String team_name;
+	public String getTeam_name() {
+		return team_name;
+	}
+	public void setTeam_name(String team_name) {
+		this.team_name = team_name;
+	}
 	public int getSoftreq_id() {
 		return softreq_id;
 	}
@@ -37,21 +44,24 @@ public class SoftReq {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	@Override
 	public String toString() {
-		return "SoftReq [softreq_id=" + softreq_id 
-				+ ", version=" + version + ", url=" + url + ", name=" + name
-				+ "]";
+		return "SoftReq [softreq_id=" + softreq_id + ", version=" + version
+				+ ", url=" + url + ", name=" + name + ", team_name="
+				+ team_name + "]";
 	}
-	public SoftReq(int softreq_id, String team_name, String version,
-			String url, String name) {
+	
+	
+	public SoftReq(int softreq_id, String version, String url, String name,
+			String team_name) {
 		super();
 		this.softreq_id = softreq_id;
 		this.version = version;
 		this.url = url;
 		this.name = name;
+		this.team_name = team_name;
 	}
-	
 	public SoftReq()
 	{
 		

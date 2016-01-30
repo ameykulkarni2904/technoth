@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 
 import com.psl.model.Participant;
+import com.psl.model.ProblemStatement;
 import com.psl.model.Team;
 import com.psl.model.Teamlogin;
 
@@ -74,5 +75,44 @@ public class DaoOps {
 		return "TEAM successfully claimed ";
 		
 	}
-	
+	public ProblemStatement getstatement(String teamName){
+		SessionFactory sessionFactory = HibernateUtil.getFactory();
+		Session session = sessionFactory.openSession();
+
+		Transaction transaction = session.beginTransaction();
+		String sql = "from ProblemStatement where team_name =:name ";
+		Query query = session.createQuery(sql);
+		query.setString("name", teamName);
+		List<ProblemStatement> list = query.list();
+		
+		return list.get(0);
+	}
+
+	public void updateParticipants(Team team) {
+		// TODO Auto-generated method stub
+		SessionFactory sessionFactory = HibernateUtil.getFactory();
+		Session session = sessionFactory.openSession();
+//		Transaction transaction = session.beginTransaction();
+
+		
+		String sql = "from Participant";
+		Query query = session.createQuery(sql);
+		List<Participant> list = query.list();
+		for (Participant participant : list) {
+			if(participant.getTeam_id()==team.getTeam_id()){
+				Session session1 = sessionFactory.openSession();
+				Transaction transaction = session1.beginTransaction();
+				participant.setTeam_name(team.getTeam_name());
+				session1.saveOrUpdate(participant);
+				
+
+//				Transaction transaction = session.beginTransaction();
+				//session1.flush();
+				transaction.commit();
+				session1.close();
+				
+			}
+		}
+		
+	}
 }

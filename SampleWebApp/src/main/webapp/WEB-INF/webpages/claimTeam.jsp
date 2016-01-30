@@ -20,16 +20,16 @@
 <title>Team home Page</title>
 
 <!-- Bootstrap Core CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="<c:url value="/resources/cssteam/bootstrap.min.css" />">
+		
+    <!-- Custom CSS -->
+    <link href="<c:url value="/resources/cssteam/sb-admin.css"/>" rel="stylesheet">
 
-<!-- Custom CSS -->
-<link href="css/sb-admin.css" rel="stylesheet">
+   
+    <!-- Custom Fonts -->
+    <link href="<c:url value="/resources/font-awesometeam/css/font-awesome.min.css"/>" rel="stylesheet" type="text/css">
 
-<!-- Custom Fonts -->
-<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
-	type="text/css">
-
-
+   
 
 
 </head>
@@ -139,31 +139,58 @@
 		</ul>
 		<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
-			<ul class="nav navbar-nav side-nav">
-				<li class="active"><a href="uploadParticipantList.html"><i
-						class="fa fa-fw fa-dashboard"></i>Upload Participant List</a></li>
-				<li><a href="charts.html"><i
-						class="fa fa-fw fa-bar-chart-o"></i>Team Details</a></li>
-				<li><a href="claimTeam.html"><i class="fa fa-fw fa-table"></i>Claim
-						Teams</a></li>
-				<li><a href="generateSchedule.html"><i
-						class="fa fa-fw fa-edit"></i>Schedule Generation</a></li>
-				<li><a href="bootstrap-elements.html"><i
-						class="fa fa-fw fa-desktop"></i>Problem Statement Status</a></li>
-				<li><a href="bootstrap-grid.html"><i
-						class="fa fa-fw fa-wrench"></i>Software Requirement Status</a></li>
-				<li><a href="displayReport.html"><i
-						class="fa fa-fw fa-wrench"></i>Report Generation</a></li>
-				<li><a href="sendEmail.html"><i class="fa fa-fw fa-wrench"></i>Send
-						Emails</a></li>
-
-				<li><a href="bootstrap-grid.html"><i
-						class="fa fa-fw fa-wrench"></i>Rss Feeds</a></li>
-				<li><a href="bootstrap-grid.html"><i
-						class="fa fa-fw fa-wrench"></i>Feedback</a></li>
-
-			</ul>
-		</div>
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                    
+                    <a href="<c:url value="uploadFileXls"/>"><i class="fa fa-fw fa-edit"></i>Upload Participant List</a>
+                    
+                        
+                    </li>
+                   
+                    
+                    <li>
+                    <a href="<c:url value="claimTeam"/>"><i class="fa fa-fw fa-edit"></i> Claim Teams</a>
+                        
+                    </li>
+                    
+                    <li>
+                    <a href="<c:url value="schedule1/add"/>"><i class="fa fa-fw fa-edit"></i>Schedule Generation</a>
+                        
+                    </li>
+                    
+                    <li>
+                    <a href="<c:url value="displayproblem"/>"><i class="fa fa-fw fa-edit"></i>Problem Statement Status</a>
+                        
+                    </li>
+                    
+                    <li>
+                    <a href="<c:url value="/uploadFileXls"/>"><i class="fa fa-fw fa-edit"></i>Upload Participant List</a>
+                        
+                    </li>
+                    
+					<li>
+					<a href="<c:url value="displayreport"/>"><i class="fa fa-fw fa-edit"></i>Report Generation</a>
+                       
+                    </li>
+                    
+					<li>
+					<a href="<c:url value="sendEmail"/>"><i class="fa fa-fw fa-edit"></i>Send Emails</a>
+                        
+                    </li>
+					
+					<%-- <li>
+					<a href="<c:url value="/uploadFileXls"/>"><i class="fa fa-fw fa-edit"></i>Upload Participant List</a>
+                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i>Rss Feeds</a>
+                    </li> --%>
+                    
+                    
+					<li>
+					<a href="<c:url value="grade"/>"><i class="fa fa-fw fa-edit"></i>Feedback</a>
+                       
+                    </li>
+                    
+                </ul>
+            </div>
 		<!-- /.navbar-collapse --> </nav>
 
 		<div id="page-wrapper">
@@ -245,10 +272,12 @@
 	</div>
 	<!-- /#wrapper -->
 
-	<!-- jQuery -->
-	<script src="js/jquery.js"></script>
+	 <!-- jQuery -->
+    <script src="<c:url value="jsteam/jquery.js"/>"></script>
 
-	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="<c:url value="jsteam/bootstrap.min.js"/>"></script>
+
+
 </body>
 </html>

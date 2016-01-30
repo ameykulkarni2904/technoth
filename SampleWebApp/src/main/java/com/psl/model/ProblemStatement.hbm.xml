@@ -3,16 +3,23 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Jan 18, 2016 2:10:00 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.psl.model.ProblemStatement" table="problem_statement">
-        <id name="team_name">
-            <column name="team_name" />
-            <generator class="assigned" />
-        </id>
-        <property name="statement" type="java.lang.String">
-            <column name="statement" />
-        </property>
-        <property name="description">
-        	<column name="description"></column>
-        </property>
-    </class>
+	<class name="com.psl.model.ProblemStatement" table="problem_statement">
+		<id name="team_name">
+			<column name="team_name" />
+			<generator class="assigned" />
+		</id>
+		<property name="statement" type="java.lang.String">
+			<column name="statement" />
+		</property>
+		<property name="description">
+			<column name="description"></column>
+		</property>
+		<property name="status">
+			<column name="status"></column>
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">com.psl.model.Status</param>
+				<param name="useNamed">true</param>
+			</type>
+		</property>
+	</class>
 </hibernate-mapping>

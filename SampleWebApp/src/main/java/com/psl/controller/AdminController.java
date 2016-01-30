@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.psl.dao.DaoOps;
 import com.psl.dao.HibernateUtil;
 import com.psl.model.Admin;
+import com.psl.model.DailyReport;
 import com.psl.model.ProblemStatement;
 import com.psl.model.Team;
 import com.psl.model.Teamlogin;
@@ -188,6 +189,8 @@ public class AdminController {
 		System.out.println("in login post method");
 		System.out.println("tea" + Teamlogin);
 		// model.addAttribute("teamlogin1", Teamlogin);
+		Admin admin = new Admin();
+		model.addAttribute("admin", admin);
 		ProblemStatement ps = new ProblemStatement();
 		model.addAttribute("problemstatement", ps);
 		SessionFactory sessionFactory = HibernateUtil.getFactory();
@@ -197,7 +200,7 @@ public class AdminController {
 
 		// session.save(admin);
 		// session.g
-		String sql = "from Teamlogin where name =:name and password=:password";
+		String sql = "from Team where team_name =:name and password=:password";
 		Query query = session.createQuery(sql);
 		query.setString("name", Teamlogin.getName());
 		query.setString("password", Teamlogin.getPassword());
@@ -206,6 +209,7 @@ public class AdminController {
 		if (list.size() != 0) {
 			System.out.println("list" + list);
 			return "team";
+			
 		}
 		session.flush();
 
@@ -239,13 +243,45 @@ public class AdminController {
 		m.addAttribute("team",team);
 		DaoOps dao=new DaoOps();
 		List<Integer> list=dao.getTeamCount();
+		
 		m.addAttribute("teamlist", list);
 		
 		m.addAttribute("msg",dao.addTeam(team));
+		dao.updateParticipants(team);
 		return "claimTeam";
 	}
 
 	
+	@RequestMapping(value="/displayreport",method=RequestMethod.GET)
+	public String loginpost(Model model){
+		//String teamName=new String();
+		DailyReport rep=new DailyReport();
+		model.addAttribute("team_name", rep);
+		return "DisplayReport";
+	}
+	@RequestMapping(value="/displayreport",method=RequestMethod.POST)
+	public String loginposts(Model model,DailyReport rep){
+		//String teamName=new String();
+		//model.addAttribute("team_name", teamName);
+		///DailyReport rep1=new DailyReport();
+		
+		SessionFactory sessionFactory=HibernateUtil.getFactory();
+		Session session=sessionFactory.openSession();
+		DailyReport dr=new DailyReport();
+		Transaction transaction= session.beginTransaction();
+		Query q=session.createQuery("from DailyReport");
+		//session.createCriteria(arg0, arg1)
+		List<DailyReport> dl=(List<DailyReport>)q.list();
+		for (DailyReport report :dl) {
+			if(rep.getTeam_name().equalsIgnoreCase(report.getTeam_name())){
+				dr=report;
+				break;
+			}
+		}
+		model.addAttribute("team_name", dr);
+		System.out.println("daily report"+dr);
+		return "DisplayReport";
+	}
 	
 	
 }

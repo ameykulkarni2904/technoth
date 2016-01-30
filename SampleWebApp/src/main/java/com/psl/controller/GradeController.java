@@ -16,22 +16,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.psl.dao.HibernateUtil;
-import com.psl.model.SoftReq;
+import com.psl.model.Grade;
+
+
 
 
 @Controller
-public class SoftReqController {
+public class GradeController {
 
-	@RequestMapping(value="/softreq",method=RequestMethod.GET)
-	public String addSoftreq(Model m){
+	@RequestMapping(value="/grade",method=RequestMethod.GET)
+	public String addgrade(Model m){
 		//Admin a = new Admin("abc","abc@gmail.com",12345);
 		//m.addAttribute("admin", a);
-		SoftReq softreq=new SoftReq();
-		m.addAttribute("softreq",softreq);
+		Grade grade=new Grade();
+		m.addAttribute("grade",grade);
 		//out.print(a.getEmailID());
 	
 		Configuration configuration=new Configuration();
-		configuration.addResource("com/psl/model/SoftReq.hbm.xml");
+		configuration.addResource("com/psl/model/Grade.hbm.xml");
 		configuration.configure();
 		SessionFactory factory=configuration.buildSessionFactory();
 		Session session=factory.openSession();
@@ -45,17 +47,17 @@ public class SoftReqController {
 		transaction.commit();
 		
 		session.close();
-		return "SoftRequirement";
+		return "gradeAdmin";
 	}
-	@RequestMapping(value="/softreq",method=RequestMethod.POST)
-	public String signup(Model model,SoftReq softreq){
-		model.addAttribute("softreq1", softreq);
+	@RequestMapping(value="/grade",method=RequestMethod.POST)
+	public String signup(Model model,Grade grade){
+		model.addAttribute("grade1", grade);
 		SessionFactory sessionFactory=HibernateUtil.getFactory();
 	Session session=sessionFactory.openSession();
 		
 		Transaction transaction= session.beginTransaction();
 		
-		session.save(softreq);
+		session.save(grade);
 		
 		session.flush();
 		
@@ -63,7 +65,7 @@ public class SoftReqController {
 		
 		session.close();
 		
-		return "SoftRequirement";
+		return "gradeAdmin";
 	}
 	/*@RequestMapping(value="/login",method=RequestMethod.GET)
 	public String login(Model model){
@@ -109,7 +111,15 @@ public class SoftReqController {
 	
 		
 	}*/
-	@RequestMapping(value="/displaysoft")
+/*	@RequestMapping(value="/displaysoft",method=RequestMethod.GET)
+	public String loginpost1(Model model){
+		//String teamName=new String();
+		SoftReq soft=new SoftReq();
+		System.out.println("*********************");
+		model.addAttribute("soft_req", soft);
+		return "softReq";
+	}*/
+	/*@RequestMapping(value="/displaysoft")
 	public String loginposts1(Model model,SoftReq soft){
 		//String teamName=new String();
 		//model.addAttribute("team_name", teamName);
@@ -132,5 +142,5 @@ public class SoftReqController {
 		session.close();
 		return "softReq";
 	}
-	
+	*/
 }
